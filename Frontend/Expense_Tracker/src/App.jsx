@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import SignUp from './Components/SignUp'
 import LogIn from './Components/LogIn'
 import Dashboard from './Components/Dashboard'
 import { Route, Routes } from 'react-router-dom'
 import Forget_password from './Components/Forget_password'
+import Resetpassword from './Components/Reset_password'
+import Main_Page from './Components/Main_Page'
 
 function App() {
 
@@ -18,8 +18,9 @@ function App() {
       <Route path='/SignUp' element={<SignUp/>}></Route>
       <Route path='/LogIn' element={<LogIn/>}></Route>
       <Route path='/Forget_password' element={<Forget_password/>}></Route>
+      <Route path='/Resetpassword/:token' element={<Resetpassword/>}></Route>
+      <Route path='/Main_Page' element={<Main_Page/>}></Route>
     </Routes>
-    
     </>
   )
 }

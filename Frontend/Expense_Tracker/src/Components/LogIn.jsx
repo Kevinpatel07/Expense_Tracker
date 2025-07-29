@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import axios from 'axios'
 import { NavLink ,  useNavigate } from 'react-router-dom'
+import api from '../utils/axiosInstance'
 
 const LogIn = () => {
   const navigate = useNavigate()
@@ -12,15 +12,17 @@ const LogIn = () => {
     const password = passwordRef.current.value.trim()
 
     try {
-      const res = await axios.post("http://localhost:7390/Users/login", {
+      const res = await api.post("/login", {
         email,
         password
       })
 
+      console.log(res)
       localStorage.setItem("accessToken", res.data.Accesstoken)
+      localStorage.setItem("refreshToken" , res.data.Refreshtoken)
 
       alert("Login successful!");
-      navigate('/Dashboard');
+      navigate('/Main_Page');
     } catch (error) {
       console.error("Login Failed:", error.response?.data?.message);
       alert(error.response?.data?.message || "Login failed");
@@ -60,3 +62,5 @@ const LogIn = () => {
 }
 
 export default LogIn
+
+

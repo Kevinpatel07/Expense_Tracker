@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
+import api from '../utils/axiosInstance';
 
-const BaseURL = "http://localhost:7390/Users"
 
 const SignUp = () => {
   const navigate = useNavigate()
@@ -14,7 +13,7 @@ const SignUp = () => {
  
   const handleSignUp = async()=>{
     try {
-       await axios.post(`${BaseURL}/Signup` , {username:userSignUp.username , 
+       await api.post('/Signup' , {username:userSignUp.username , 
         email:userSignUp.email , 
         password:userSignUp.password
       })
@@ -40,13 +39,13 @@ const SignUp = () => {
 
           <div className='signUp-input'>
             <label htmlFor="name">Username:</label>
-            <input onChange={handleChange} type="text" id="name" name='username' placeholder='Enter your name' />
+            <input onChange={handleChange} type="text" id="name" value={userSignUp.username} name='username' placeholder='Enter your name' />
 
             <label htmlFor="email">Email:</label>
-            <input onChange={handleChange} type="email" id="email" name='email' placeholder='Enter your email' />
+            <input onChange={handleChange} type="email" id="email" value={userSignUp.email} name='email' placeholder='Enter your email' />
 
             <label htmlFor="password">Password:</label>
-            <input onChange={handleChange} type="password" id='password' name='password' placeholder='Enter your password' />
+            <input onChange={handleChange} type="password" id='password' value={userSignUp.password} name='password' placeholder='Enter your password' />
           </div>
 
           <div className='signUp-button'>

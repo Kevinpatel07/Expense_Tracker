@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,12 +6,12 @@
 
 /* SIGN-UP */
 
-.parent-signUp{
+.parent-signUp {
   border: 1px solid gray;
   height: 100vh;
 }
 
-.main-signUp-box{
+.main-signUp-box {
   border: 1px solid gray;
   height: 58vh;
   width: 50%;
@@ -21,9 +21,9 @@
   gap: 5px;
 }
 
-.welcome{
+.welcome {
   width: 40%;
-  background-color:lightseagreen;
+  background-color: lightseagreen;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,23 +31,23 @@
 }
 
 
-.create-signUp-account{
+.create-signUp-account {
   width: 60%;
 }
 
-.create h2{
+.create h2 {
   text-align: center;
   padding: 20px 0px;
 }
 
-.signUp-input label{
+.signUp-input label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
   margin-left: 5px;
 }
 
-.signUp-input input{
+.signUp-input input {
   width: 98%;
   margin-bottom: 10px;
   padding: 5px;
@@ -57,17 +57,17 @@
   margin-left: 2px;
 }
 
-.signUp-input input:focus{
-   border-color: lightseagreen; 
-   box-shadow: 0 0 5px lightseagreen;
-   transition: all 0.3s ease;
+.signUp-input input:focus {
+  border-color: lightseagreen;
+  box-shadow: 0 0 5px lightseagreen;
+  transition: all 0.3s ease;
 }
 
-.signUp-button{
+.signUp-button {
   text-align: center;
 }
 
-.signUp-button button{
+.signUp-button button {
   margin-top: 20px;
   padding: 8px 60px;
   border: 1px solid lightgrey;
@@ -78,12 +78,12 @@
 }
 
 /* LOG-IN */
-.parentLogin{
+.parentLogin {
   border: 1px solid gray;
   height: 100vh;
 }
 
-.login-box{
+.login-box {
   border: 1px solid lightgray;
   width: 50%;
   margin: auto;
@@ -92,11 +92,11 @@
   gap: 15px;
 }
 
-.login{
+.login {
   width: 60%;
 }
 
-.welcome-back{
+.welcome-back {
   width: 40%;
   background-color: lightseagreen;
   color: white;
@@ -105,23 +105,23 @@
   align-items: center;
 }
 
-.login-header{
+.login-header {
   text-align: center;
   margin-top: 50px;
 }
 
-.login-inputs{
+.login-inputs {
   margin-top: 30px;
   margin-left: 20px;
 }
 
-.login-inputs label{
-   display: block;
-   font-weight: bold;
-   margin-bottom: 5px;
+.login-inputs label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.login-inputs input{
+.login-inputs input {
   width: 100%;
   padding: 5px;
   border-radius: 10px;
@@ -130,17 +130,17 @@
   margin-bottom: 10px;
 }
 
-.login-inputs input:focus{
+.login-inputs input:focus {
   border-color: lightseagreen;
   box-shadow: 0 0 5px lightseagreen;
   transition: all 0.3s ease;
 }
 
-.login-button{
+.login-button {
   text-align: center;
 }
 
-.login-button button{
+.login-button button {
   margin-top: 10px;
   margin-bottom: 15px;
   padding: 8px 60px;
@@ -151,21 +151,21 @@
   font-weight: bold;
 }
 
-.forget-password{
-  text-align:end;
+.forget-password {
+  text-align: end;
   margin: 2%;
 }
 
 /* DASHBOARD */
 
-.nav-bar{
+.nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: lightseagreen;
 }
 
-.nav-logo{
+.nav-logo {
   width: 30%;
   display: flex;
   align-items: center;
@@ -173,16 +173,16 @@
   color: #ffffff;
 }
 
-.logo-image{
+.logo-image {
   max-width: 60px;
   margin-right: 10px;
 }
 
-.logo-image img{
+.logo-image img {
   width: 100%;
 }
 
-.nav-buttons button{
+.nav-buttons button {
   padding: 10px 30px;
   margin: 0px 20px;
   border-radius: 10px;
@@ -198,13 +198,13 @@
   text-decoration: underline;
 }
 
-.body{
+.body {
   display: grid;
   background-color: lightseagreen;
   color: white;
 }
 
-.main-body{
+.main-body {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,34 +212,34 @@
   gap: 20px;
 }
 
-.main-body .body-image{
+.main-body .body-image {
   max-width: 250px;
 }
 
-.body-image img{
+.body-image img {
   width: 100%;
 }
 
-.body-headers{
+.body-headers {
   text-align: center;
 }
 
-.body-headers h3{
+.body-headers h3 {
   padding-top: 10px;
 }
 
-hr{
+hr {
   width: 90%;
   margin: auto;
   border: 1px solid lightgray;
 }
 
-.body-web-headers{
+.body-web-headers {
   text-align: center;
   padding-top: 15px;
 }
 
-.body-buttons{
+.body-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,64 +248,64 @@ hr{
   padding-bottom: 60px;
 }
 
-.body-button{
+.body-button {
   display: flex;
   align-items: center;
   border: 1px solid gray;
   border-radius: 20px;
   background-color: white;
-  color: lightseagreen; 
+  color: lightseagreen;
   padding: 10px 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.button-img-1{
+.button-img-1 {
   max-width: 50px;
   margin-right: 10px;
 }
 
-.button-img-2{
+.button-img-2 {
   max-width: 45px;
   margin-right: 10px;
 }
 
-.button-img-3{
+.button-img-3 {
   max-width: 40px;
   margin-right: 10px;
 }
 
-.body-button img{
+.body-button img {
   width: 100%;
 }
 
 /* Dashboard- Overview */
 
-.overview{
+.overview {
   display: flex;
   margin-top: 2%;
 }
 
-.overview .overview-section{
+.overview .overview-section {
   width: 30%;
   display: grid;
   justify-content: center;
   align-items: center;
   background-color: lightseagreen;
-  color: white  ;
+  color: white;
 }
 
-.overview .overview-img{
+.overview .overview-img {
   width: 60%;
   margin: auto;
   text-align: center;
 }
 
-.overview-img div p{
+.overview-img div p {
   font-size: large;
   margin-top: 2%;
 }
 
-.overview .overview-img img{
+.overview .overview-img img {
   width: 80%;
   margin-top: 2%;
   border: 1px solid lightgray;
@@ -313,24 +313,24 @@ hr{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.overview-img div img:hover{
+.overview-img div img:hover {
   box-shadow: 0px 3px 8px lightseagreen;
 }
 
 /* Transaction-Dashboard */
 
-.transaction{
+.transaction {
   display: flex;
   margin-top: 2%;
 }
 
-.transaction .transaction-img{
+.transaction .transaction-img {
   width: 60%;
   margin: auto;
   text-align: center;
 }
 
-.transaction .transaction-img img{
+.transaction .transaction-img img {
   width: 80%;
   margin-top: 2%;
   border: 1px solid black;
@@ -338,11 +338,12 @@ hr{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.transaction .transaction-img p{
+.transaction .transaction-img p {
   font-size: large;
   margin-top: 2%;
 }
-.transaction .transaction-section{
+
+.transaction .transaction-section {
   width: 30%;
   background-color: lightseagreen;
   display: flex;
@@ -351,21 +352,21 @@ hr{
   color: white;
 }
 
-.transaction .transaction-img img:hover{
+.transaction .transaction-img img:hover {
   box-shadow: 0px 3px 8px lightseagreen;
 }
 
 /* Functions Dashboard */
 
-.functions{
+.functions {
   display: grid;
-  grid-template-columns: repeat(2 , 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   margin-top: 3%;
   padding: 3%;
 }
 
-.lucide-icon{
+.lucide-icon {
   width: 10%;
   height: 10vh;
   background-color: lightseagreen;
@@ -377,17 +378,151 @@ hr{
   color: white;
 }
 
-.functions .function-1{
+.functions .function-1 {
   display: flex;
   gap: 15px;
 }
 
 /* Footer */
 
-.footer{
+.footer {
   background-color: lightseagreen;
   padding: 20px;
   margin-top: 20px;
   text-align: center;
+  color: white;
+}
+
+/* FORGET PASSWORD */
+
+.forget-password-page {
+  display: flex;
+  gap: 15px;
+  width: 50%;
+  margin: auto;
+  border: 1px solid gray;
+  margin-top: 10%;
+}
+
+.forget-password-page .box1 {
+  width: 40%;
+  background-color: lightseagreen;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forget-password-page .box2 {
+  width: 60%;
+}
+
+.forget-password-page .box2 .box2-p {
+  text-align: center;
+  font-size: large;
+  margin-top: 10%;
+}
+
+.forget-password-page .box2 .box2-input label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10%;
+  font-size: large;
+  text-align: center;
+}
+
+.forget-password-page .box2 .box2-input input {
+  width: 98%;
+  border-radius: 5px;
+  margin-top: 2%;
+  outline: none;
+  border: 1px solid gray;
+  padding: 1%;
+}
+
+.forget-password-page .box2 .box2-input input:focus {
+  border-color: lightseagreen;
+  box-shadow: 0 0 5px lightseagreen;
+  transition: all 0.3s ease;
+}
+
+.forget-password-page .box2 .box2-button {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.forget-password-page .box2 .box2-button button {
+  padding: 2.5%;
+  border-radius: 50px;
+  background-color: lightseagreen;
+  color: white;
+  border: 1px solid gray;
+  margin-bottom: 10%;
+}
+
+/* RESET PASSWORD */
+
+.reset-password {
+  display: flex;
+  gap: 15px;
+  border: 1px solid gray;
+  width: 50%;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.reset-password .reset-box1 {
+  width: 60%;
+}
+
+.reset-box1 .reset-p {
+  text-align: center;
+  margin-top: 10%;
+  font-size: large;
+}
+
+.reset-box1 .reset-inputs label {
+  display: block;
+  font-weight: bold;
+  margin-top: 7%;
+  text-align: center;
+}
+
+.reset-box1 .reset-inputs input {
+  width: 98%;
+  border: 1px solid gray;
+  margin-left: 1%;
+  padding: 1%;
+  border-radius: 5px;
+  margin-top: 1.5%;
+  outline: none;
+}
+
+.reset-box1 .reset-inputs input:focus {
+  border-color: lightseagreen;
+  box-shadow: 0 0 5px lightseagreen;
+  transition: all 0.3s ease;
+}
+
+.reset-password .reset-box2 {
+  width: 40%;
+  background-color: lightseagreen;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reset-password .reset-button{
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.reset-password .reset-button button{
+  padding: 1.5%;
+  border-radius: 50px;
+  border: 1px solid gray;
+  background-color: lightseagreen;
   color: white;
 }

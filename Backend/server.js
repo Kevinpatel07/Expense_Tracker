@@ -9,7 +9,7 @@ connectDB()
 App.use(cors());
 App.use(express.json())
 
-App.use('/Users' , userRouter)
+App.use('/api' , userRouter)
 
 PORT = 7390
 App.listen(PORT , ()=>{
