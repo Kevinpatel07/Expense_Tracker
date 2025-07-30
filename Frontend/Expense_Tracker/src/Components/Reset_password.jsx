@@ -1,11 +1,12 @@
 import React from 'react'
 import { useRef } from 'react'
 import api from '../utils/axiosInstance'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 
 const Resetpassword = () => {
   const NewRef = useRef()
   const ConfirmRef = useRef()
+  const navigate = useNavigate()
 
   // Agar query string se karte he
 
@@ -17,7 +18,7 @@ const Resetpassword = () => {
   // console.log(token); // Ab yahan token aayega agar URL me ?token=... diya ho
 
   const { token } = useParams()
-  console.log(token)
+
   const handleResetPassword = async () => {
     const newPassword = NewRef.current.value.trim()
     const confirmPassword = ConfirmRef.current.value.trim()
@@ -28,6 +29,7 @@ const Resetpassword = () => {
         newPassword
       })
       alert('Password Reset Successfully , Please Login Again')
+      navigate('/Login')
     }else{
       alert('Passwords do not match')
     }

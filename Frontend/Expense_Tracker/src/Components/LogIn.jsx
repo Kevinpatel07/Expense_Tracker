@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import { NavLink ,  useNavigate } from 'react-router-dom'
 import api from '../utils/axiosInstance'
+import { AuthContext } from '../ContextAPI/Auth'
 
 const LogIn = () => {
   const navigate = useNavigate()
@@ -8,6 +9,7 @@ const LogIn = () => {
   const passwordRef = useRef()
 
   const handleLogin = async () => {
+    const {setisLogin}= useContext(AuthContext)
     const email = emailRef.current.value.trim()
     const password = passwordRef.current.value.trim()
 
@@ -22,6 +24,7 @@ const LogIn = () => {
       localStorage.setItem("refreshToken" , res.data.Refreshtoken)
 
       alert("Login successful!");
+      setisLogin(true)
       navigate('/Main_Page');
     } catch (error) {
       console.error("Login Failed:", error.response?.data?.message);
