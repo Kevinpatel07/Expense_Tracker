@@ -228,7 +228,7 @@
   padding-top: 10px;
 }
 
-hr {
+.body hr {
   width: 90%;
   margin: auto;
   border: 1px solid lightgray;
@@ -513,16 +513,271 @@ hr {
   align-items: center;
 }
 
-.reset-password .reset-button{
+.reset-password .reset-button {
   text-align: center;
   margin-top: 5%;
   margin-bottom: 10%;
 }
 
-.reset-password .reset-button button{
+.reset-password .reset-button button {
   padding: 1.5%;
   border-radius: 50px;
   border: 1px solid gray;
   background-color: lightseagreen;
   color: white;
+}
+
+
+/* MAIN PAGE */
+
+.main-page {
+  display: flex;
+  height: 100vh;
+}
+
+.main-page .sidebar {
+  height: 100vh;
+  width: 25%;
+  background-color: lightseagreen;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-hidden {
+  display: none;
+}
+
+.sidebar .sidebar-logo {
+  display: flex;
+  gap: 2%;
+  align-items: center;
+  margin-left: 5%;
+}
+
+.sidebar-img {
+  width: 20%;
+}
+
+.sidebar-img img {
+  width: 100%;
+}
+
+.sidebar-logo .sidebar-name {
+  width: 80%;
+}
+
+.sidebar-page {
+  margin-left: 5%;
+  margin-top: 15%;
+}
+
+.sidebar-ol {
+  list-style-type: none;
+}
+
+.sidebar-ol li {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  margin-bottom: 15%;
+  padding: 1%;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.sidebar-ol li .navlink {
+  color: white;
+  font-size: larger;
+  text-decoration: none;
+}
+
+.sidebar-ol li:hover {
+  background-color: black
+}
+
+.main-page .main-page-body {
+  width: 75%;
+  margin-left: 25%;
+  overflow-y: auto;
+}
+
+
+/* Main-Page-Body */
+
+.main-page-body-full {
+  width: 100%;
+}
+
+.main-page-body-nav {
+  display: flex;
+  padding: 1.7%;
+  gap: 2%;
+  align-items: center;
+  border: 1px solid lightgray;
+  position: sticky;
+  top: 0px;
+  background-color: aliceblue;
+}
+
+.main-page-body-nav button {
+  background-color: aliceblue;
+  border: 1px solid aliceblue;
+}
+
+.main-page-body-nav .nav-title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* DropDown Container */
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  background-color: white;
+}
+
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px 45px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f2f2f2;
+}
+
+/* Main-Page Transaction */
+
+.transaction {
+  display: grid;
+  grid-template-areas: "filter date date"
+    "filter  all  all"
+    ".      all  all";
+}
+
+.transaction .transaction-filter {
+  grid-area: filter;
+  border: 1px solid lightgray;
+  margin: 2%;
+  border-radius: 10px;
+}
+
+.transaction-filter .transaction-filter-header {
+  text-align: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.transaction-filter .transaction-filter-inputs label {
+  display: block;
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 3%;
+  margin-left: 2%;
+}
+
+.transaction-filter .transaction-filter-inputs input {
+  width: 98%;
+  padding: 1%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 3%;
+  margin-left: 1%;
+}
+
+.transaction-filter .transaction-filter-inputs input:focus {
+  border-color: lightseagreen;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px lightseagreen;
+}
+
+
+.transaction-filter-checkbox div {
+  margin-bottom: 4%;
+  margin-left: 2%;
+}
+
+.transaction-filter-checkbox .type {
+  font-weight: bold;
+  font-size: large;
+}
+
+.transaction-filter-checkbox .expense {
+  display: flex;
+  gap: 2%;
+}
+
+.transaction-filter-checkbox .income {
+  display: flex;
+  gap: 2%;
+}
+
+.transaction .transaction-date {
+  grid-area: date;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 1%;
+  margin: 1%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction .all-transaction {
+  grid-area: all;
+  background-color: red;
+}
+
+/* Accounts */
+
+.accounts .accounts-wallet {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin-top: 10%;
+  padding: 2%;
+}
+
+.accounts .accounts-bank {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin-top: 5%;
+  padding: 2%;
+}
+
+.accounts .accounts-total {
+  width: 50%;
+  margin: auto;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin-top: 5%;
+  padding: 2%;
+  text-align: end;
 }

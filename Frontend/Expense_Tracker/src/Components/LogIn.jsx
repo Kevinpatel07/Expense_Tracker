@@ -1,15 +1,15 @@
 import React, { useContext, useRef } from 'react'
-import { NavLink ,  useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import api from '../utils/axiosInstance'
 import { AuthContext } from '../ContextAPI/Auth'
 
 const LogIn = () => {
+  const {setisLogin } = useContext(AuthContext)
   const navigate = useNavigate()
   const emailRef = useRef()
   const passwordRef = useRef()
 
   const handleLogin = async () => {
-    const {setisLogin}= useContext(AuthContext)
     const email = emailRef.current.value.trim()
     const password = passwordRef.current.value.trim()
 
@@ -19,10 +19,9 @@ const LogIn = () => {
         password
       })
 
-      console.log(res)
       localStorage.setItem("accessToken", res.data.Accesstoken)
-      localStorage.setItem("refreshToken" , res.data.Refreshtoken)
-
+      localStorage.setItem("refreshToken", res.data.Refreshtoken)
+    
       alert("Login successful!");
       setisLogin(true)
       navigate('/Main_Page');
@@ -49,7 +48,7 @@ const LogIn = () => {
           </div>
 
           <div className='forget-password'>
-            <NavLink style={{color:"black"}} to='/Forget_password'>Forget Password?</NavLink>
+            <NavLink style={{ color: "black" }} to='/Forget_password'>Forget Password?</NavLink>
           </div>
 
           <div className='login-button'>

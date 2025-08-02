@@ -51,8 +51,8 @@ userRouter.post('/login', async (req, res) => {
                 res.status(500).json({ message: "Login Error" })
             } else {
                 if (result) {
-                    const Accesstoken = jwt.sign({ userID: user._id }, 'Access', { expiresIn: '1m' })
-                    const Refreshtoken = jwt.sign({ userId: user._id }, 'Refresh', { expiresIn: '5m' })
+                    const Accesstoken = jwt.sign({ userID: user._id }, 'Access', { expiresIn: '10m' })
+                    const Refreshtoken = jwt.sign({ userId: user._id }, 'Refresh', { expiresIn: '60m' })
 
                     res.status(200).json({ message: "Login Successful", Accesstoken, Refreshtoken })
                 }
@@ -73,7 +73,7 @@ userRouter.post('/refresh-token', async (req, res) => {
     }
     try {
         const decoded = jwt.verify(refreshtoken, 'refresh')
-        const newAccessToken = jwt.sign({ userId: decoded.userId }, 'newAccess', { expiresIn: "1m" })
+        const newAccessToken = jwt.sign({ userId: decoded.userId }, 'newAccess', { expiresIn: "10m" })
 
         res.status(200).json({ newAccessToken })
 
