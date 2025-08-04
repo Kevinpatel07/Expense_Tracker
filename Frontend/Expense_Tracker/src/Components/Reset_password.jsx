@@ -24,7 +24,7 @@ const Resetpassword = () => {
     const confirmPassword = ConfirmRef.current.value.trim()
 
     if (newPassword === confirmPassword) {
-      await api.post('/reset-password', {
+      await api.post('users/reset-password', {
         token,
         newPassword
       })

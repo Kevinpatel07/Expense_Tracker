@@ -14,7 +14,7 @@ const LogIn = () => {
     const password = passwordRef.current.value.trim()
 
     try {
-      const res = await api.post("/login", {
+      const res = await api.post("/users/login", {
         email,
         password
       })

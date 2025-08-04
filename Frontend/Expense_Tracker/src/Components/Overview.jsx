@@ -9,72 +9,7 @@ const Overview = () => {
     },[])
   return (
     <div>
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-
-
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      <h1>Hey Kevin</h1>
-
-      <h1>Hey Kevin</h1>
-      
+  
     </div>
   )
 }

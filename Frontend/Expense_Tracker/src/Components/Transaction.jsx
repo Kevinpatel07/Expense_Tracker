@@ -1,13 +1,26 @@
 import React, { useContext, useEffect } from 'react'
 import { path } from '../ContextAPI/path.context'
-import { ChevronLeft , ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import api from '../utils/axiosInstance';
 
 const Transaction = () => {
-  const { settitle } = useContext(path)
+  const { settitle, transactions , settransactions } = useContext(path)
+
+  const gettransaction = async()=>{
+      try {
+        const res = await api.get('/incomes/get-income')
+        settransactions(res.data.getincometransaction)
+      } catch (error) {
+        console.log(error.message)
+      }
+  }
 
   useEffect(() => {
     settitle('Transaction')
+    gettransaction()
   }, [])
+
+
   return (
     <div>
       <div className='transaction'>
@@ -53,7 +66,15 @@ const Transaction = () => {
         </div>
 
         <div className='all-transaction'>
-          <h2>box3</h2>
+
+          {transactions.map((transaction)=>(
+            <div key={transaction._id}>
+                <p>{transaction.category}</p>
+                <p>{transaction.amount}</p>
+                <p>{transaction.account}</p>
+            </div>
+          ))}
+            
         </div>
       </div>
     </div>

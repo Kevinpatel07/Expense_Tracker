@@ -13,7 +13,7 @@ const SignUp = () => {
  
   const handleSignUp = async()=>{
     try {
-       await api.post('/Signup' , {username:userSignUp.username , 
+       await api.post('users/Signup' , {username:userSignUp.username , 
         email:userSignUp.email , 
         password:userSignUp.password
       })

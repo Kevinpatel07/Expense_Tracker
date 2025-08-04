@@ -280,12 +280,12 @@
 
 /* Dashboard- Overview */
 
-.overview {
+.dashboard-overview{
   display: flex;
   margin-top: 2%;
 }
 
-.overview .overview-section {
+.dashboard-overview .overview-section {
   width: 30%;
   display: grid;
   justify-content: center;
@@ -294,7 +294,7 @@
   color: white;
 }
 
-.overview .overview-img {
+.dashboard-overview .overview-img {
   width: 60%;
   margin: auto;
   text-align: center;
@@ -305,7 +305,7 @@
   margin-top: 2%;
 }
 
-.overview .overview-img img {
+.dashboard-overview .overview-img img {
   width: 80%;
   margin-top: 2%;
   border: 1px solid lightgray;
@@ -319,18 +319,18 @@
 
 /* Transaction-Dashboard */
 
-.transaction {
+.dashboard-transaction {
   display: flex;
   margin-top: 2%;
 }
 
-.transaction .transaction-img {
-  width: 60%;
-  margin: auto;
+.dashboard-transaction .transaction-img {
+  width: 55%;
   text-align: center;
+  margin: auto;
 }
 
-.transaction .transaction-img img {
+.dashboard-transaction .transaction-img img {
   width: 80%;
   margin-top: 2%;
   border: 1px solid black;
@@ -338,12 +338,12 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.transaction .transaction-img p {
+.dashboard-transaction .transaction-img p {
   font-size: large;
   margin-top: 2%;
 }
 
-.transaction .transaction-section {
+.dashboard-transaction .transaction-section {
   width: 30%;
   background-color: lightseagreen;
   display: flex;
@@ -352,7 +352,7 @@
   color: white;
 }
 
-.transaction .transaction-img img:hover {
+.dashboard-transaction .transaction-img img:hover {
   box-shadow: 0px 3px 8px lightseagreen;
 }
 
@@ -665,6 +665,155 @@
   background-color: #f2f2f2;
 }
 
+/* Income / Expense Button*/
+
+.Income{
+  position: fixed;
+  right: 2%;
+  bottom: 28%;
+}
+
+.Income button{
+  padding: 1rem 1.5rem;
+  background-color: green;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  color: white;
+}
+
+.Income .income-popUp-overlay{
+  position: fixed;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.Income .income-popUp-content {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.income-popUp-content div h1{
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.income-data label{
+  font-size: large;
+  font-weight: bold;
+  margin-left: 0.3rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.income-data .type{
+  display: block;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+}
+
+.income-data .type:focus{
+  border-color: lightseagreen;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px lightseagreen;
+}
+
+.income-content-button{
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+/* Expenses */
+
+.Expense{
+  position: fixed;
+  right: 1.8%;
+  bottom: 16%;
+}
+
+.Expense .expense-popup-overlay{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.expense-popup-overlay .expense-popup-content{
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  width: 50%;
+  border-radius: 10px;
+}
+
+.expense-popup-content div h1{
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.expense-data .type{
+  display: block;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+}
+
+.expense-data label{
+  font-size: large;
+  font-weight: bold;
+  margin-left: 0.3rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.expense-data .type:focus{
+  border-color: lightseagreen;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px lightseagreen;
+}
+
+.expense-content-button{
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+.Expense button{
+  padding: 1rem 1.3rem;
+  background-color: red;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  color: white;
+}
+
+
 /* Main-Page Transaction */
 
 .transaction {
@@ -745,7 +894,6 @@
 
 .transaction .all-transaction {
   grid-area: all;
-  background-color: red;
 }
 
 /* Accounts */

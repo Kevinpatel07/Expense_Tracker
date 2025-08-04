@@ -4,7 +4,8 @@ export const path = createContext()
 
 const PathProvider = ({children})=>{
     const [title , settitle] = useState('Welcome')
-    return <path.Provider value={{title , settitle}}>
+    const [transactions , settransactions] = useState([])
+    return <path.Provider value={{title , settitle , transactions , settransactions}}>
         {children}
     </path.Provider>
 }

@@ -51,10 +51,12 @@ userRouter.post('/login', async (req, res) => {
                 res.status(500).json({ message: "Login Error" })
             } else {
                 if (result) {
-                    const Accesstoken = jwt.sign({ userID: user._id }, 'Access', { expiresIn: '10m' })
+                    const Accesstoken = jwt.sign({ userId: user._id }, 'Access', { expiresIn: '10m' })
                     const Refreshtoken = jwt.sign({ userId: user._id }, 'Refresh', { expiresIn: '60m' })
 
                     res.status(200).json({ message: "Login Successful", Accesstoken, Refreshtoken })
+                }else{
+                    res.status(500).json({message:"Wrong Password"})
                 }
             }
         });

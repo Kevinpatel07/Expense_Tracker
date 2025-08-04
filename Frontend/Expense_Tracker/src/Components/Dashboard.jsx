@@ -97,7 +97,7 @@ const Dashboard = () => {
 
       {/* OverView */}
 
-      <div className='overview'>
+      <div className='dashboard-overview'>
         <div className='overview-section'>
           <h1>Overview</h1>
         </div>
@@ -114,7 +114,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className='transaction'>
+      <div className='dashboard-transaction'>
 
         <div className='transaction-img'>
           <div>

@@ -4,6 +4,8 @@ import { TableOfContents, LayoutDashboard, Landmark, Calculator, ChartPie, Setti
 import myImage from '../assets/budget-planning-notes-3d-icon-download-in-png-blend-fbx-gltf-file-formats--financial-expense-recording-personal-finance-management-budgeting-accounting-pack-business-icons-12460312.webp'
 import { path } from '../ContextAPI/path.context';
 import { AuthContext } from '../ContextAPI/Auth';
+import Income from './Income';
+import Expense from './Expense';
 
 
 const Main_Page = () => {
@@ -12,7 +14,8 @@ const Main_Page = () => {
   const { title } = useContext(path)
   const { setisLogin } = useContext(AuthContext)
   const [showDropdown, setShowDropdown] = useState(false)
-  const [isSidebarOpen , setisSidebarOpen] = useState(true)
+  const [isSidebarOpen, setisSidebarOpen] = useState(true)
+  const [popUptype, setpopUptype] = useState(null)
 
   // Sign Out //
   const handleSignOut = () => {
@@ -24,13 +27,28 @@ const Main_Page = () => {
     navigate('/Login')
   }
 
+  // Income and Expense button
+
+  const ShowIncomepopUp = () => {
+    setpopUptype('income')
+  }
+
+  const ShowExpensepopUp = () => {
+    setpopUptype('expense')
+  }
+
+  const ClosepopUp = () => {
+    setpopUptype(null)
+  }
 
 
   return (
     <div>
+
       <div className='main-page'>
 
-        <div className={isSidebarOpen ? 'sidebar' : 'sidebar-hidden' }>
+        {/* Sidebar */}
+        <div className={isSidebarOpen ? 'sidebar' : 'sidebar-hidden'}>
 
           <div className='sidebar-logo'>
             <div className='sidebar-img'>
@@ -56,10 +74,12 @@ const Main_Page = () => {
 
         </div>
 
-        <div className={isSidebarOpen? 'main-page-body' : 'main-page-body-full'}>
+        {/* Main-body Navbar */}
+
+        <div className={isSidebarOpen ? 'main-page-body' : 'main-page-body-full'}>
           <nav className='main-page-body-nav'>
             <div className='nav-slider'>
-              <button onClick={()=> setisSidebarOpen(!isSidebarOpen)}><AlignJustify /></button>
+              <button onClick={() => setisSidebarOpen(!isSidebarOpen)}><AlignJustify /></button>
             </div>
             <div className='nav-title'>
               <h1>{title}</h1>
@@ -76,6 +96,23 @@ const Main_Page = () => {
               </div>
             </div>
           </nav>
+
+          {/* Incomes */}
+          <div className='Income'>
+            <button onClick={ShowIncomepopUp}>Income</button>
+
+            {popUptype === 'income' &&  <Income closeUp={ClosepopUp} setpopUp={setpopUptype}/>}
+
+          </div>
+
+          {/* Expenses */}
+
+          <div className='Expense'>
+            <button onClick={ShowExpensepopUp}>Expense</button>
+
+            {popUptype == 'expense' && <Expense closeUp={ClosepopUp} setpopUp={setpopUptype}/>}
+          </div>
+
           <Outlet />
         </div>
 

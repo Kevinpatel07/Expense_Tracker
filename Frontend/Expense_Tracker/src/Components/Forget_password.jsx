@@ -7,7 +7,7 @@ const Forget_password = () => {
     const handleResetPassword = async () => {
         const email = emailRef.current.value.trim()
 
-        await api.post('/forget-password', {email})
+        await api.post('users/forget-password', {email})
 
         alert("Password Reset link Send to Registered Mail")
     }
