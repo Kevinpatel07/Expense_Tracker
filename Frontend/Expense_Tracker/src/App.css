@@ -618,12 +618,12 @@
   border: 1px solid lightgray;
   position: sticky;
   top: 0px;
-  background-color: aliceblue;
+  background-color: azure;
 }
 
 .main-page-body-nav button {
-  background-color: aliceblue;
-  border: 1px solid aliceblue;
+  background-color: azure;
+  border: 1px solid azure;
 }
 
 .main-page-body-nav .nav-title {
@@ -645,7 +645,7 @@
   border: 1px solid lightgray;
   border-radius: 5px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
-  z-index: 1;
+  z-index: 999;
   background-color: white;
 }
 
@@ -654,10 +654,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 6rem;
 }
 
 .dropdown-menu li {
-  padding: 10px 45px;
+  padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
@@ -671,6 +672,7 @@
   position: fixed;
   right: 2%;
   bottom: 28%;
+  z-index: 1;
 }
 
 .Income button{
@@ -691,7 +693,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .Income .income-popUp-content {
@@ -745,6 +747,7 @@
   position: fixed;
   right: 1.8%;
   bottom: 16%;
+  z-index: 1;
 }
 
 .Expense .expense-popup-overlay{
@@ -821,12 +824,15 @@
   grid-template-areas: "filter date date"
     "filter  all  all"
     ".      all  all";
+  margin-top: 1rem;
 }
 
 .transaction .transaction-filter {
   grid-area: filter;
   border: 1px solid lightgray;
-  margin: 2%;
+  background-color: azure;
+  margin: 1rem;
+  padding: 1rem;
   border-radius: 10px;
 }
 
@@ -855,11 +861,10 @@
 }
 
 .transaction-filter .transaction-filter-inputs input:focus {
-  border-color: lightseagreen;
+  border-color: lightblue;
   transition: all 0.3s ease;
-  box-shadow: 0 0 5px lightseagreen;
+  box-shadow: 0 0 5px lightblue;
 }
-
 
 .transaction-filter-checkbox div {
   margin-bottom: 4%;
@@ -885,15 +890,84 @@
   grid-area: date;
   border: 1px solid lightgray;
   border-radius: 10px;
-  padding: 1%;
-  margin: 1%;
+  padding: 0.5rem;
+  margin: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: azure;
+}
+
+.transaction .transaction-date button{
+  background-color: azure;
+  border: 1px solid azure;
 }
 
 .transaction .all-transaction {
   grid-area: all;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  background-color: azure;
+}
+
+.all-transaction .transaction-headers{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.map-transaction{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.map-transaction .map-transaction-content{
+  display: flex;
+  justify-content: space-between;
+  width: 92%;
+}
+
+.map-transaction .transaction-amount-date{
+  text-align: end ; 
+}
+
+.map-transaction .map-transaction-button button{
+  background-color: azure;
+  border: 1px solid azure;
+}
+
+.map-transaction-button{
+  position: relative;
+}
+
+.edit-delete-dropdown-content{
+  position: absolute;
+  right: 0;
+  top: 120%;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 0.5rem 1rem; 
+  z-index: 1;
+}
+
+.edit-delete-dropdown-content ol{
+  display: grid;
+  gap: 10px;
+  width: 8rem;
+}
+
+.edit-delete-dropdown-content ol li{
+  list-style: none;
+  cursor: pointer;
+}
+
+.edit-delete-dropdown-content:hover{
+  background-color: lightgray;
 }
 
 /* Accounts */

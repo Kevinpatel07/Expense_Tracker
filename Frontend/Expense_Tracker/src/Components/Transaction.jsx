@@ -1,24 +1,108 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { path } from '../ContextAPI/path.context'
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, EllipsisVertical } from 'lucide-react';
 import api from '../utils/axiosInstance';
 
 const Transaction = () => {
-  const { settitle, transactions , settransactions } = useContext(path)
+  const { settitle, transactions, settransactions } = useContext(path)
+  const [editDeleteDropdown, seteditDeleteDropdown] = useState(null)
+  const [searchTerm, setsearchTerm] = useState({ category: "", note: "" })
+  const [typeFilter, settypeFilter] = useState({ income: false, expense: false })
+  const [currentMonth, setcurrentMonth] = useState(new Date())
 
-  const gettransaction = async()=>{
-      try {
-        const res = await api.get('/incomes/get-income')
-        settransactions(res.data.getincometransaction)
-      } catch (error) {
-        console.log(error.message)
-      }
+
+  // Get Income //
+  const getIncometransaction = async () => {
+    try {
+      const res = await api.get('/incomes/get-income')
+      settransactions((prev) => [...prev, ...res.data.getincometransaction])
+
+    } catch (error) {
+      console.log(error.message)
+    }
   }
+
+  // Get Expense //
+  const getExpensetransaction = async () => {
+    try {
+      const res = await api.get('/expenses/get-expenses')
+      settransactions((prev) => [...prev, ...res.data.getexpenses])
+
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+
+  // Checkbox handle
+
+  const handleCheckbox = (event) => {
+    const { name, checked } = event.target
+    settypeFilter({ ...typeFilter, [name]: checked })
+  }
+
+  // Months Arrow Handle
+
+  const handleprevMonth = () => {
+    setcurrentMonth((prev) => {
+      const newDate = new Date(prev)
+      newDate.setMonth(newDate.getMonth() - 1)
+      return newDate
+    })
+  }
+
+  const handlenextMonth = () => {
+    setcurrentMonth((prev) => {
+      const newDate = new Date(prev)
+      newDate.setMonth(newDate.getMonth() + 1)
+      return newDate
+    })
+  }
+
+  const formattedMonth = currentMonth.toLocaleString("default", {
+    month: "long",
+    year: "numeric",
+  });
+
+
+
+  // Filter Data //
+
+ const selectMonth = currentMonth.getMonth()
+ const selectYear = currentMonth.getFullYear()
+
+  const filterData = (event) => {
+    const { name, value } = event.target
+    setsearchTerm({ ...searchTerm, [name]: value })
+  }
+
+
+  const filterTransaction = transactions.filter((item) => {
+    const category = item.category.toLowerCase().includes(searchTerm.category.toLowerCase())
+    const note = item.note.toLowerCase().includes(searchTerm.note.toLowerCase())
+
+    const isIncome = Number(item.amount >= 0)
+    const isExpense = Number(item.amount < 0)
+
+    const typecheck =
+      (!typeFilter.income && !typeFilter.expense) ||
+      (typeFilter.income && isIncome) ||
+      (typeFilter.expense && isExpense)
+
+    const itemDate = new Date(item.date)
+    const isSameMonth = itemDate.getMonth() === selectMonth && itemDate.getFullYear() === selectYear
+
+    return category && note && typecheck && isSameMonth
+  })
+
+  const record = filterTransaction.reduce((sum, item) => sum + Number(item.amount), 0)
 
   useEffect(() => {
     settitle('Transaction')
-    gettransaction()
+    getIncometransaction()
+    getExpensetransaction()
   }, [])
+
 
 
   return (
@@ -33,10 +117,10 @@ const Transaction = () => {
 
           <div className='transaction-filter-inputs'>
             <label htmlFor="category">Category:</label>
-            <input type="textarea" id="category" />
+            <input onChange={filterData} name='category' value={searchTerm.category} type="textarea" id="category" />
 
             <label htmlFor="Notes">Notes:</label>
-            <input type="text" id="Notes" />
+            <input onChange={filterData} name='note' value={searchTerm.note} type="text" id="Notes" />
           </div>
 
           <div className='transaction-filter-checkbox'>
@@ -46,12 +130,12 @@ const Transaction = () => {
             </div>
 
             <div className='expense'>
-              <input type="checkbox" />
+              <input type="checkbox" name='expense' onChange={handleCheckbox} checked={typeFilter.expense} />
               <label htmlFor="">Expenses</label>
             </div>
 
             <div className='income'>
-              <input type="checkbox" />
+              <input type="checkbox" name='income' onChange={handleCheckbox} checked={typeFilter.income} />
               <label htmlFor="">Income</label>
             </div>
 
@@ -60,21 +144,59 @@ const Transaction = () => {
         </div>
 
         <div className='transaction-date'>
-          <ChevronLeft />
-          <h2>August 2025</h2>
-          <ChevronRight />
+          <button onClick={handleprevMonth}><ChevronLeft /></button>
+          <h2>{formattedMonth}</h2>
+          <button onClick={handlenextMonth}><ChevronRight /></button>
         </div>
 
         <div className='all-transaction'>
 
-          {transactions.map((transaction)=>(
-            <div key={transaction._id}>
-                <p>{transaction.category}</p>
-                <p>{transaction.amount}</p>
-                <p>{transaction.account}</p>
-            </div>
-          ))}
-            
+          <div className='transaction-headers'>
+            <h2>Transaction:{filterTransaction.length}</h2>
+            <h2 style={{ color: record >= 0 ? "green" : "red" }}>Total:{record}</h2>
+          </div>
+
+          <hr />
+
+          {filterTransaction.length > 0 ?
+            [...filterTransaction]
+              .sort((a, b) => new Date(b.date) - new Date(a.date))
+              .map((transaction) => (
+
+                <div className='map-transaction' key={transaction._id}>
+
+                  <div className='map-transaction-content'>
+                    <div>
+                      <h3>{transaction.category}</h3>
+                      <p>{transaction.account}</p>
+                    </div>
+
+                    <div className='transaction-amount-date'>
+                      <p>{transaction.amount}</p>
+                      <p>{transaction.date ? new Date(transaction.date).toISOString().slice(0, 10) : "No Date"}</p>
+                    </div>
+                  </div>
+
+                  <div className='map-transaction-button'>
+                    <button onClick={() => seteditDeleteDropdown(editDeleteDropdown === transaction._id ? null : transaction._id)}><EllipsisVertical /></button>
+
+                    {editDeleteDropdown === transaction._id && (
+
+                      <div className='edit-delete-dropdown-content'>
+                        <ol>
+                          <li>Edit Transaction</li>
+                          <li>Delete Transaction</li>
+                        </ol>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))
+            :
+            <p style={{ textAlign: 'center', marginTop: '1rem' }}>
+              No Transaction Found
+            </p>
+          }
         </div>
       </div>
     </div>

@@ -23,8 +23,9 @@ const Income = ({ closeUp, setpopUp }) => {
                 time: incomedata.time,
                 note: incomedata.note
             })
-            settransactions(prev=>[...prev, res.data.addIncome])
-            setpopUp(null)
+            settransactions(prev=>  [...prev, res.data.addIncome])
+
+            setpopUp(null)  
         } catch (error) {
             console.log(error)
             console.error('Frontend Add Income Error', error.response?.data?.message)
