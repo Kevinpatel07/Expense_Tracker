@@ -29,4 +29,22 @@ incomeRouter.get('/get-income', AuthMiddleware, async (req, res) => {
     }
 })
 
+incomeRouter.patch('/edit-income/:id' , AuthMiddleware , async(req,res)=>{
+    try {
+         const {id} =  req.params
+        const incomeTransaction = await Incomemodel.findById(id)
+
+        if(!incomeTransaction){
+            return res.status(404).json({message:"No Transaction Found"})
+        }
+
+        const edit = await Incomemodel.findByIdAndUpdate(id , req.body , {new:true})
+        res.status(201).json({edit})
+        
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({ message: "edit-income error" })
+    }
+})
+
 module.exports = incomeRouter

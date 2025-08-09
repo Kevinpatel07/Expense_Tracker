@@ -101,7 +101,7 @@ const Main_Page = () => {
           <div className='Income'>
             <button onClick={ShowIncomepopUp}>Income</button>
 
-            {popUptype === 'income' &&  <Income closeUp={ClosepopUp} setpopUp={setpopUptype}/>}
+            {popUptype === 'income' &&  <Income setpopUp={setpopUptype}/>}
 
           </div>
 
@@ -110,7 +110,7 @@ const Main_Page = () => {
           <div className='Expense'>
             <button onClick={ShowExpensepopUp}>Expense</button>
 
-            {popUptype == 'expense' && <Expense closeUp={ClosepopUp} setpopUp={setpopUptype}/>}
+            {popUptype == 'expense' && <Expense setpopUp={setpopUptype}/>}
           </div>
 
           <Outlet />

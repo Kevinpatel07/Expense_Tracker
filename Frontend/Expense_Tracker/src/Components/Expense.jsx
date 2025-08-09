@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { path } from '../ContextAPI/path.context'
 import api from '../utils/axiosInstance'
 
-const Expense = ({ closeUp, setpopUp }) => {
+const Expense = ({setpopUp }) => {
     const { settransactions } = useContext(path)
     const [expenses, setexpenses] = useState({ category: "", amount: "", account: "", date: "", time: "", note: "" })
 
@@ -78,7 +78,7 @@ const Expense = ({ closeUp, setpopUp }) => {
 
                 <div className='expense-content-button'>
                     <button onClick={handleSave}>Save</button>
-                    <button onClick={closeUp}>Cancel</button>
+                    <button onClick={()=> setpopUp(null)}>Cancel</button>
                 </div>
 
             </div>

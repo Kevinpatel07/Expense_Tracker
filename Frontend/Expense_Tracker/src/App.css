@@ -824,7 +824,7 @@
   grid-template-areas: "filter date date"
     "filter  all  all"
     ".      all  all";
-  margin-top: 1rem;
+  margin: 0.5rem;
 }
 
 .transaction .transaction-filter {
@@ -948,8 +948,8 @@
   position: absolute;
   right: 0;
   top: 120%;
-  background-color: white;
-  border: 1px solid lightgray;
+  background-color: lightseagreen;
+  border: 1px solid lightseagreen;
   border-radius: 10px;
   padding: 0.5rem 1rem; 
   z-index: 1;
@@ -964,10 +964,78 @@
 .edit-delete-dropdown-content ol li{
   list-style: none;
   cursor: pointer;
+  color: white;
 }
 
-.edit-delete-dropdown-content:hover{
-  background-color: lightgray;
+.edit-delete-dropdown-content ol li:hover{
+  text-decoration: underline;
+}
+
+/* EDIT TRANSACTION INCOME */
+
+.edit-transaction-income{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.edit-transaction-income .edit-transaction-income-content{
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.edit-transaction-income .edit-transaction-income-content div h1{
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.edit-transaction-content-inputs label{
+  font-size: large;
+  font-weight: bold;
+  margin-left: 0.3rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.edit-transaction-content-inputs .inputs{
+  display: block;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+}
+
+.edit-transaction-content-inputs .inputs:focus{
+  border-color: lightseagreen;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px lightseagreen;
+}
+
+.edit-transaction-income-content-buttons{
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  margin-top: 1rem;
+  margin-right: 1rem; 
+}
+
+.edit-transaction-income-content-buttons button{
+  padding: 1rem 1.5rem;
+  background-color: green !important;
+  border-radius: 10px;
+  color: white;
 }
 
 /* Accounts */

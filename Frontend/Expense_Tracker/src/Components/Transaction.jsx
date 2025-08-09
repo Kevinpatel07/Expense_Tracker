@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { path } from '../ContextAPI/path.context'
 import { ChevronLeft, ChevronRight, EllipsisVertical } from 'lucide-react';
 import api from '../utils/axiosInstance';
+import Edit_Transaction_income from './Edit_Transaction_income';
+import Edit_Transaction_Expense from './Edit_Transaction_Expense';
 
 const Transaction = () => {
   const { settitle, transactions, settransactions } = useContext(path)
@@ -9,30 +11,18 @@ const Transaction = () => {
   const [searchTerm, setsearchTerm] = useState({ category: "", note: "" })
   const [typeFilter, settypeFilter] = useState({ income: false, expense: false })
   const [currentMonth, setcurrentMonth] = useState(new Date())
+  const [editPopup , seteditPopup] = useState(null)
 
-
-  // Get Income //
-  const getIncometransaction = async () => {
+  const Alltransaction = async ()=>{
     try {
-      const res = await api.get('/incomes/get-income')
-      settransactions((prev) => [...prev, ...res.data.getincometransaction])
+      const incomeres = await api.get('/incomes/get-income')
+      const expenseres = await api.get('/expenses/get-expenses')
 
+      settransactions([...incomeres.data.getincometransaction , ...expenseres.data.getexpenses])
     } catch (error) {
       console.log(error.message)
     }
   }
-
-  // Get Expense //
-  const getExpensetransaction = async () => {
-    try {
-      const res = await api.get('/expenses/get-expenses')
-      settransactions((prev) => [...prev, ...res.data.getexpenses])
-
-    } catch (error) {
-      console.log(error.message)
-    }
-  }
-
 
   // Checkbox handle
 
@@ -99,8 +89,7 @@ const Transaction = () => {
 
   useEffect(() => {
     settitle('Transaction')
-    getIncometransaction()
-    getExpensetransaction()
+    Alltransaction()
   }, [])
 
 
@@ -184,7 +173,11 @@ const Transaction = () => {
 
                       <div className='edit-delete-dropdown-content'>
                         <ol>
-                          <li>Edit Transaction</li>
+                          <li onClick={()=> seteditPopup(true)}>Edit Transaction</li>
+                                
+                                {editPopup && transaction.amount >= 0 &&  ( <Edit_Transaction_income editpopup={seteditPopup} transactionId={editDeleteDropdown}/> )}
+                                {editPopup && transaction.amount < 0 && (<Edit_Transaction_Expense editpopup={seteditPopup}/>)}
+                          
                           <li>Delete Transaction</li>
                         </ol>
                       </div>

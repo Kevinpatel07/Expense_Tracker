@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { path } from '../ContextAPI/path.context'
 import api from '../utils/axiosInstance'
 
-const Income = ({ closeUp, setpopUp }) => {
+const Income = ({setpopUp}) => {
     const { settransactions } = useContext(path)
     const [incomedata, setincomedata] = useState({ category: "", amount: "", account: "", date: "", time: "", note: "" })
 
@@ -23,7 +23,7 @@ const Income = ({ closeUp, setpopUp }) => {
                 time: incomedata.time,
                 note: incomedata.note
             })
-            settransactions(prev=>  [...prev, res.data.addIncome])
+            settransactions((prev)=>  [...prev, res.data.addIncome])
 
             setpopUp(null)  
         } catch (error) {
@@ -73,7 +73,7 @@ const Income = ({ closeUp, setpopUp }) => {
 
                 <div className='income-content-button'>
                     <button onClick={handleSave}>Save</button>
-                    <button onClick={closeUp}>Cancel</button>
+                    <button onClick={()=> setpopUp(null)}>Cancel</button>
                 </div>
             </div>
         </div>
