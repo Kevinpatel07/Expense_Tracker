@@ -24,6 +24,24 @@ const Transaction = () => {
     }
   }
 
+  // Delete Transaction //
+
+  const handleDelete = async(transactionAmount)=>{
+    try {
+      if(transactionAmount >= 0){
+          const deleteIncome = await api.delete(`/incomes/delete-income/${editDeleteDropdown}`)
+          Alltransaction()
+          alert(deleteIncome.data.message)   
+      }else{
+        const deleteExpense = await api.delete(`/expenses/delete-expense/${editDeleteDropdown}`)
+        Alltransaction()
+        alert(deleteExpense.data.message)
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
   // Checkbox handle
 
   const handleCheckbox = (event) => {
@@ -48,6 +66,7 @@ const Transaction = () => {
       return newDate
     })
   }
+
 
   const formattedMonth = currentMonth.toLocaleString("default", {
     month: "long",
@@ -178,7 +197,7 @@ const Transaction = () => {
                                 {editPopup && transaction.amount >= 0 &&  ( <Edit_Transaction_income editpopup={seteditPopup} transactionId={editDeleteDropdown}/> )}
                                 {editPopup && transaction.amount < 0 && (<Edit_Transaction_Expense editpopup={seteditPopup} transactionId={editDeleteDropdown}/>)}
                           
-                          <li>Delete Transaction</li>
+                          <li onClick={()=>handleDelete(transaction.amount)}>Delete Transaction</li>
                         </ol>
                       </div>
                     )}

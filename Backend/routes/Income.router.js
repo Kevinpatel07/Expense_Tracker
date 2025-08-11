@@ -18,9 +18,6 @@ incomeRouter.post('/add-income', AuthMiddleware, async (req, res) => {
 incomeRouter.get('/get-income', AuthMiddleware, async (req, res) => {
     try {
         const getincometransaction = await Incomemodel.find({userId:req.user})
-        if(getincometransaction.length == 0){
-            return res.status(404).json({message:"No Transaction Found"})
-        }
         
         res.status(200).json({ getincometransaction })
     } catch (error) {
@@ -44,6 +41,25 @@ incomeRouter.patch('/edit-income/:id' , AuthMiddleware , async(req,res)=>{
     } catch (error) {
         console.log(error.message)
         res.status(500).json({ message: "edit-income error" })
+    }
+})
+
+incomeRouter.delete('/delete-income/:id' , AuthMiddleware , async(req,res)=>{
+    try {
+        const {id} = req.params
+
+        const deletetransaction = await Incomemodel.findById(id)
+
+        if(!deletetransaction){
+            return res.status(404).json({message:"No Transaction Found"})
+        }
+
+         await Incomemodel.findByIdAndDelete(id)
+        res.status(200).json({message:"Income Transaction Deleted"})
+
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({ message: "Delete-income error" })
     }
 })
 

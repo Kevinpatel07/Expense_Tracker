@@ -17,11 +17,6 @@ expenseRouter.post('/add-expenses' ,AuthMiddleware ,  async(req,res)=>{
 expenseRouter.get('/get-expenses' , AuthMiddleware , async(req , res)=>{
     try {
         const getexpenses = await Expensemodel.find({userId : req.user})
-
-         if(getexpenses.length == 0){
-            return res.status(404).json({message:"No Transaction Found"})
-        }
-
         res.status(200).json({getexpenses})
     } catch (error) {
         console.log(error.message)
@@ -45,6 +40,24 @@ expenseRouter.patch('/edit-expense/:id' , AuthMiddleware , async(req,res)=>{
     } catch (error) {
         console.log(error.message)
         res.status(500).json({message:"Edit-Expenses Error"})
+    }
+})
+
+expenseRouter.delete('/delete-expense/:id' , AuthMiddleware , async(req,res)=>{
+    try {
+        const {id} = req.params
+
+        const deletetransaction = await Expensemodel.findById(id)
+
+        if(!deletetransaction){
+            return res.status(500).json({message:"No Transaction Found"})
+        }
+
+        await Expensemodel.findByIdAndDelete(id)
+        res.status(200).json({message:" Expense Transaction Deleted"})
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({message:"Delete-Expenses Error"})
     }
 })
 module.exports = expenseRouter
