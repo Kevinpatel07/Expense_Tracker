@@ -176,7 +176,7 @@ const Transaction = () => {
                           <li onClick={()=> seteditPopup(true)}>Edit Transaction</li>
                                 
                                 {editPopup && transaction.amount >= 0 &&  ( <Edit_Transaction_income editpopup={seteditPopup} transactionId={editDeleteDropdown}/> )}
-                                {editPopup && transaction.amount < 0 && (<Edit_Transaction_Expense editpopup={seteditPopup}/>)}
+                                {editPopup && transaction.amount < 0 && (<Edit_Transaction_Expense editpopup={seteditPopup} transactionId={editDeleteDropdown}/>)}
                           
                           <li>Delete Transaction</li>
                         </ol>

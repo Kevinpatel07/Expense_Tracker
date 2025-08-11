@@ -8,7 +8,7 @@ const Edit_Transaction_income = ({ editpopup, transactionId }) => {
 
   const handleedit = (event) => {
     const { name, value } = event.target
-    setedit({ ...edit, [name]: name == 'amount' ? Number(value) : value })
+    setedit({ ...edit, [name]: name == 'amount' ? -Number(value) : value })
   }
 
   const handleeditsave = async () => {

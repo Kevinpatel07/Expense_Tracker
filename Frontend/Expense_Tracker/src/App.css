@@ -979,7 +979,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1034,6 +1034,74 @@
 .edit-transaction-income-content-buttons button{
   padding: 1rem 1.5rem;
   background-color: green !important;
+  border-radius: 10px;
+  color: white;
+}
+
+/* EDIT TRANSACTION EXPENSES */
+
+.edit-transaction-expenses{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.edit-transaction-expenses-content{
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.edit-transaction-expenses .edit-transaction-expenses-content div h1{
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+
+.edit-transaction-expenses-content-inputs label{
+  font-size: large;
+  font-weight: bold;
+  margin-left: 0.3rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.edit-transaction-expenses-content-inputs .inputs{
+  display: block;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+}
+
+.edit-transaction-expenses-content-inputs .inputs:focus{
+  border-color: lightseagreen;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px lightseagreen;
+}
+
+.edit-transaction-expenses-content-buttons{
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  margin-top: 1rem;
+  margin-right: 1rem; 
+}
+
+.edit-transaction-expenses-content-buttons button{
+  padding: 1rem 1.5rem;
+  background-color:red !important;
   border-radius: 10px;
   color: white;
 }

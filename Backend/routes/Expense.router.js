@@ -29,4 +29,22 @@ expenseRouter.get('/get-expenses' , AuthMiddleware , async(req , res)=>{
     }
 })
 
+
+expenseRouter.patch('/edit-expense/:id' , AuthMiddleware , async(req,res)=>{
+    try {
+        const {id} = req.params
+
+        const editExpenses = await Expensemodel.findById(id)
+
+        if(!editExpenses){
+            return res.status(404).json({message:"No Transaction Found"})
+        }
+
+        const edit = await Expensemodel.findByIdAndUpdate(id , req.body , {new:true})
+        res.status(201).json({edit})
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({message:"Edit-Expenses Error"})
+    }
+})
 module.exports = expenseRouter
