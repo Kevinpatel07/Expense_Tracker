@@ -5,38 +5,32 @@ import api from '../utils/axiosInstance';
 import Edit_Transaction_income from './Edit_Transaction_income';
 import Edit_Transaction_Expense from './Edit_Transaction_Expense';
 
-const Transaction = () => {
-  const { settitle, transactions, settransactions } = useContext(path)
+const Transaction = (allTransaction) => {
+  const { settitle, transactions} = useContext(path)
   const [editDeleteDropdown, seteditDeleteDropdown] = useState(null)
   const [searchTerm, setsearchTerm] = useState({ category: "", note: "" })
   const [typeFilter, settypeFilter] = useState({ income: false, expense: false })
   const [currentMonth, setcurrentMonth] = useState(new Date())
-  const [editPopup , seteditPopup] = useState(null)
+  const [editPopup, seteditPopup] = useState(null)
 
-  const Alltransaction = async ()=>{
-    try {
-      const incomeres = await api.get('/incomes/get-income')
-      const expenseres = await api.get('/expenses/get-expenses')
-
-      settransactions([...incomeres.data.getincometransaction , ...expenseres.data.getexpenses])
-    } catch (error) {
-      console.log(error.message)
-    }
-  }
 
   // Delete Transaction //
 
-  const handleDelete = async(transactionAmount)=>{
+  const handleDelete = async (transactionAmount) => {
     try {
-      if(transactionAmount >= 0){
+
+      const isConfirmed = window.confirm("Are you sure you want to delete this transaction?")
+
+      if (isConfirmed) {
+        if (transactionAmount >= 0) {
           const deleteIncome = await api.delete(`/incomes/delete-income/${editDeleteDropdown}`)
-          Alltransaction()
-          alert(deleteIncome.data.message)   
-      }else{
-        const deleteExpense = await api.delete(`/expenses/delete-expense/${editDeleteDropdown}`)
-        Alltransaction()
-        alert(deleteExpense.data.message)
+          alert(deleteIncome.data.message)
+        } else {
+          const deleteExpense = await api.delete(`/expenses/delete-expense/${editDeleteDropdown}`)
+          alert(deleteExpense.data.message)
+        }
       }
+      allTransaction
     } catch (error) {
       console.log(error.message)
     }
@@ -77,14 +71,13 @@ const Transaction = () => {
 
   // Filter Data //
 
- const selectMonth = currentMonth.getMonth()
- const selectYear = currentMonth.getFullYear()
+  const selectMonth = currentMonth.getMonth()
+  const selectYear = currentMonth.getFullYear()
 
   const filterData = (event) => {
     const { name, value } = event.target
     setsearchTerm({ ...searchTerm, [name]: value })
   }
-
 
   const filterTransaction = transactions.filter((item) => {
     const category = item.category.toLowerCase().includes(searchTerm.category.toLowerCase())
@@ -108,7 +101,6 @@ const Transaction = () => {
 
   useEffect(() => {
     settitle('Transaction')
-    Alltransaction()
   }, [])
 
 
@@ -192,12 +184,12 @@ const Transaction = () => {
 
                       <div className='edit-delete-dropdown-content'>
                         <ol>
-                          <li onClick={()=> seteditPopup(true)}>Edit Transaction</li>
-                                
-                                {editPopup && transaction.amount >= 0 &&  ( <Edit_Transaction_income editpopup={seteditPopup} transactionId={editDeleteDropdown}/> )}
-                                {editPopup && transaction.amount < 0 && (<Edit_Transaction_Expense editpopup={seteditPopup} transactionId={editDeleteDropdown}/>)}
-                          
-                          <li onClick={()=>handleDelete(transaction.amount)}>Delete Transaction</li>
+                          <li onClick={() => seteditPopup(true)}>Edit Transaction</li>
+
+                          {editPopup && transaction.amount >= 0 && (<Edit_Transaction_income editpopup={seteditPopup} transactionId={editDeleteDropdown} />)}
+                          {editPopup && transaction.amount < 0 && (<Edit_Transaction_Expense editpopup={seteditPopup} transactionId={editDeleteDropdown} />)}
+
+                          <li onClick={() => handleDelete(transaction.amount)}>Delete Transaction</li>
                         </ol>
                       </div>
                     )}

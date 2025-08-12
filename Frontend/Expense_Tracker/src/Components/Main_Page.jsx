@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { TableOfContents, LayoutDashboard, Landmark, Calculator, ChartPie, Settings, AlignJustify, EllipsisVertical } from 'lucide-react';
 import myImage from '../assets/budget-planning-notes-3d-icon-download-in-png-blend-fbx-gltf-file-formats--financial-expense-recording-personal-finance-management-budgeting-accounting-pack-business-icons-12460312.webp'
@@ -6,16 +6,30 @@ import { path } from '../ContextAPI/path.context';
 import { AuthContext } from '../ContextAPI/Auth';
 import Income from './Income';
 import Expense from './Expense';
+import api from '../utils/axiosInstance';
 
 
 const Main_Page = () => {
 
   const navigate = useNavigate()
-  const { title } = useContext(path)
+  const { title , settransactions } = useContext(path)
   const { setisLogin } = useContext(AuthContext)
   const [showDropdown, setShowDropdown] = useState(false)
   const [isSidebarOpen, setisSidebarOpen] = useState(true)
   const [popUptype, setpopUptype] = useState(null)
+
+  // Calling Transactions Form Backend
+
+    const Alltransaction = async () => {
+    try {
+      const incomeres = await api.get('/incomes/get-income')
+      const expenseres = await api.get('/expenses/get-expenses')
+
+      settransactions([...incomeres.data.getincometransaction, ...expenseres.data.getexpenses])
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   // Sign Out //
   const handleSignOut = () => {
@@ -40,6 +54,10 @@ const Main_Page = () => {
   const ClosepopUp = () => {
     setpopUptype(null)
   }
+
+  useEffect(()=>{
+    Alltransaction()
+  },[])
 
 
   return (
@@ -113,7 +131,7 @@ const Main_Page = () => {
             {popUptype == 'expense' && <Expense setpopUp={setpopUptype}/>}
           </div>
 
-          <Outlet />
+          <Outlet  allTransaction={Alltransaction()}/>
         </div>
 
       </div>
