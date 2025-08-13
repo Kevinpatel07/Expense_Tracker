@@ -52,7 +52,7 @@ const Expense = ({setpopUp }) => {
                         <option value="Family">Family</option>
                         <option value="Health/Sport">Health/Sport</option>
                         <option value="Pets">Pets</option>
-                        <option value="Travels">Travels</option>
+                        <option value="Travel">Travel</option>
                         <option value="Other Expenses">Other Expenses</option>
                     </select>
 

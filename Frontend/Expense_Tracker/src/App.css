@@ -1141,3 +1141,86 @@
   padding: 2%;
   text-align: end;
 }
+
+/*  CHARTS */
+
+.charts .charts-content{
+  width: 60%;
+  border: 2px solid red;
+  margin: auto;
+  margin-top: 3rem;
+  background-color: azure;
+  border: 1px solid lightgray;
+  padding: 1rem;
+}
+
+.charts-content .charts-content-1{
+  display: flex;
+  justify-content: space-between;
+}
+
+.charts-content-1 .charts-radio{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.charts-content-2 .charts-content-2-from-to{
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  margin-top: 2rem;
+}
+
+.charts-content-2 .charts-content-2-date{
+  display: flex;
+  gap: 1.1rem;
+}
+
+.charts-content-2 .charts-content-2-date input{
+  padding: 0.3rem;
+  margin-top: 0.3rem;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+}
+
+.charts-content-3{
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.charts-content-3 select{
+  padding: 0.3rem;
+  width: 60%;
+}
+
+.charts-content-4{
+  display: flex;
+  gap: 5rem;
+  margin-top: 2rem;
+}
+
+.bar-chart{
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pie-chart{
+  display: flex;
+  gap: 0.5rem;
+}
+
+
+.charts-content-5{
+  text-align: end;
+  margin-top: 2rem;
+}
+
+.charts-content-5 button{
+  padding: 0.7rem;
+  background-color: lightseagreen;
+  color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}

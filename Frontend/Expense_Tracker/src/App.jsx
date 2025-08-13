@@ -10,8 +10,7 @@ import Main_Page from './Components/Main_Page'
 import ProtectedRoutes from './Components/ProtectedRoutes'
 import Overview from './Components/Overview'
 import Transaction from './Components/transaction'
-import Accounts from './Components/Accounts'
-import Budgets from './Components/Budgets'
+import Accounts from './Components/Accounts'  
 import Charts from './Components/Charts'
 import Settings from './Components/Settings'
 
@@ -32,7 +31,6 @@ function App() {
           <Route path='Overview' element={<Overview />}></Route>
           <Route path='Transaction' element={<Transaction />}></Route>
           <Route path='Accounts' element={<Accounts/>}></Route>
-          <Route path='Budgets' element={<Budgets/>}></Route>
           <Route path='Charts' element={<Charts/>}></Route>
           <Route path='Settings' element={<Settings/>}></Route>
         </Route>

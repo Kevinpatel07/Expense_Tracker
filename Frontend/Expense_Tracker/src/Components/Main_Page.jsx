@@ -84,7 +84,6 @@ const Main_Page = () => {
               <li><LayoutDashboard /> <NavLink className='navlink' to='/Main_page/Overview'>Overview</NavLink></li>
               <li><TableOfContents /> <NavLink className='navlink' to='/Main_page/Transaction'>Transaction</NavLink></li>
               <li><Landmark /> <NavLink className='navlink' to='/Main_page/Accounts'>Accounts</NavLink></li>
-              <li><Calculator /> <NavLink className='navlink' to='/Main_page/Budgets'>Budgets</NavLink></li>
               <li> <ChartPie /> <NavLink className='navlink' to='/Main_page/Charts'>Charts</NavLink></li>
               <li><Settings /> <NavLink className='navlink' to='/Main_page/Settings'>Settings</NavLink></li>
             </ol>
