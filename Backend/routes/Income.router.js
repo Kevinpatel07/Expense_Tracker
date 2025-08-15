@@ -63,4 +63,25 @@ incomeRouter.delete('/delete-income/:id' , AuthMiddleware , async(req,res)=>{
     }
 })
 
+incomeRouter.get('/chart-transaction' , AuthMiddleware , async(req,res)=>{
+    try {
+        const {from , to , account} = req.query
+
+        const filterdata = {}
+        if(from && to){
+            filterdata.date = {$gte: new Date(from) , $lte: new Date(to)}
+        }
+
+        if(account){
+            filterdata.account = account
+        }
+
+        const filterincomedata = await Incomemodel.find(filterdata)
+        res.status(200).json({filterincomedata})
+    } catch (error) {
+        console.log(error.message)
+         res.status(500).json({ message: "chart-income error" })
+    }
+})
+
 module.exports = incomeRouter
