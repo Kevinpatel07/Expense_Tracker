@@ -2,14 +2,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { path } from '../ContextAPI/path.context'
 import api from '../utils/axiosInstance';
 import { Bar, Pie } from 'react-chartjs-2'
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, scales } from 'chart.js'
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement} from 'chart.js'
 
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement)
 
 
 const Charts = () => {
-  const { settitle, transactions } = useContext(path)
+  const { settitle} = useContext(path)
   const [transactionCategories, settransactionCategories] = useState("")
   const [date_account, setdate_account] = useState({ from: "", to: "", account: "" })
   const [charts, setcharts] = useState("")
@@ -56,7 +56,6 @@ const Charts = () => {
         labels,
         datasets: [
           {
-            label: "Expenses",
             data: amount,
             backgroundColor: [
               "rgba(255, 99, 132, 0.5)",
@@ -74,7 +73,6 @@ const Charts = () => {
         labels,
         datasets: [
           {
-            label: "Income",
             data: amount,
             backgroundColor: [
               "rgba(255, 99, 132, 0.5)",
@@ -213,14 +211,14 @@ const Charts = () => {
 
       <div>
         {charts === 'bar' && chartspopUp && chartdata.labels.length > 0 && (
-          <div>
+          <div className='display-chart'>
             <Bar data={chartdata} options={barOptions} />
           </div>
         )
         }
 
         {charts === 'pie' && chartspopUp && chartdata.labels.length > 0 && (
-          <div>
+          <div className='display-chart'>
             <Pie data={chartdata} options={pieOptions} />
           </div>
         )

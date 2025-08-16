@@ -3,7 +3,7 @@ import { path } from '../ContextAPI/path.context'
 import api from '../utils/axiosInstance'
 
 const Accounts = () => {
-  const { settitle , transactions } = useContext(path)
+  const { settitle , transactions , currencySymbol } = useContext(path)
   const [walletAmount , setwalletAmount] = useState(0)
   const [bankAmount , setbankAmount] = useState(0)
   const [total , settotal] = useState(0)
@@ -35,17 +35,17 @@ const Accounts = () => {
   return (
     <div>
       <div className='accounts'>
+        <div className='accounts-total'>
+            <h2>Total :</h2>
+            <h2 style={{color:total>=0? "green" : "red"}}>{currencySymbol} {total}</h2>
+        </div>
         <div className='accounts-wallet'>
           <h2>Wallet</h2>
-          <h2 style={{color:walletAmount>=0? "green" : "red"}}>{walletAmount}</h2>
+          <h2 style={{color:walletAmount>=0? "green" : "red"}}>{currencySymbol} {walletAmount}</h2>
         </div>
         <div className='accounts-bank'>
           <h2>Bank Account</h2>
-          <h2 style={{color:bankAmount>=0? "green" : "red"}} >{bankAmount}</h2>
-        </div>
-        <div className='accounts-total'>
-            <h2>Total:</h2>
-            <h2 style={{color:total>=0? "green" : "red"}}>{total}</h2>
+          <h2 style={{color:bankAmount>=0? "green" : "red"}} >{currencySymbol} {bankAmount}</h2>
         </div>
       </div>
     </div>

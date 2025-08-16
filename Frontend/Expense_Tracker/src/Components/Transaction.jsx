@@ -6,7 +6,7 @@ import Edit_Transaction_income from './Edit_Transaction_income';
 import Edit_Transaction_Expense from './Edit_Transaction_Expense';
 
 const Transaction = (allTransaction) => {
-  const { settitle, transactions} = useContext(path)
+  const { settitle, transactions , currencySymbol} = useContext(path)
   const [editDeleteDropdown, seteditDeleteDropdown] = useState(null)
   const [searchTerm, setsearchTerm] = useState({ category: "", note: "" })
   const [typeFilter, settypeFilter] = useState({ income: false, expense: false })
@@ -153,7 +153,7 @@ const Transaction = (allTransaction) => {
 
           <div className='transaction-headers'>
             <h2>Transaction:{filterTransaction.length}</h2>
-            <h2 style={{ color: record >= 0 ? "green" : "red" }}>Total:{record}</h2>
+            <h2 style={{ color: record >= 0 ? "green" : "red" }}>Total:{currencySymbol}{record}</h2>
           </div>
 
           <hr />

@@ -1115,8 +1115,9 @@
   margin: auto;
   border: 1px solid lightgray;
   border-radius: 10px;
-  margin-top: 10%;
+  margin-top: 5%;
   padding: 2%;
+  background-color: azure;
 }
 
 .accounts .accounts-bank {
@@ -1128,18 +1129,20 @@
   border-radius: 10px;
   margin-top: 5%;
   padding: 2%;
+  background-color: azure;
 }
 
 .accounts .accounts-total {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  gap: 1rem;
   width: 50%;
   margin: auto;
   border: 1px solid lightgray;
   border-radius: 10px;
-  margin-top: 5%;
+  margin-top: 10%;
   padding: 2%;
-  text-align: end;
+  background-color: azure;
 }
 
 /*  CHARTS */
@@ -1151,6 +1154,7 @@
   margin-top: 3rem;
   background-color: azure;
   border: 1px solid lightgray;
+  border-radius: 5px;
   padding: 1rem;
 }
 
@@ -1219,6 +1223,60 @@
 
 .charts-content-5 button{
   padding: 0.7rem;
+  background-color: lightseagreen;
+  color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.display-chart{
+  margin-top: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  background-color: azure;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+/* SETTINGS */
+
+.settings{
+ border: 1px solid lightgray;
+ width: 70%;
+ margin: auto;
+ background-color: azure;
+ margin-top: 3rem;
+ padding: 1rem;
+}
+
+.settings .settings-feedback{
+  margin-bottom: 0.5rem;
+}
+
+.settings .settings-currency{
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.settings .settings-currency select{
+  width: 60%;
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid lightgray;
+}
+
+.settings .settings-currency select:focus{
+  border-color: lightseagreen;
+  box-shadow: 0 0 5px lightseagreen;
+  transition: all 0.3s ease;
+}
+
+.settings .settings-currency button{
+  padding: 0.4rem 1.2rem ;
   background-color: lightseagreen;
   color: white;
   border: 1px solid lightgray;
