@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { TableOfContents, LayoutDashboard, Landmark, Calculator, ChartPie, Settings, AlignJustify, EllipsisVertical } from 'lucide-react';
+import { TableOfContents, LayoutDashboard, Landmark, ChartPie, Settings, AlignJustify, EllipsisVertical } from 'lucide-react';
 import myImage from '../assets/budget-planning-notes-3d-icon-download-in-png-blend-fbx-gltf-file-formats--financial-expense-recording-personal-finance-management-budgeting-accounting-pack-business-icons-12460312.webp'
 import { path } from '../ContextAPI/path.context';
 import { AuthContext } from '../ContextAPI/Auth';
@@ -50,11 +50,7 @@ const Main_Page = () => {
   const ShowExpensepopUp = () => {
     setpopUptype('expense')
   }
-
-  const ClosepopUp = () => {
-    setpopUptype(null)
-  }
-
+  
   useEffect(()=>{
     Alltransaction()
   },[])

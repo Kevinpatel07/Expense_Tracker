@@ -28,6 +28,7 @@ function App() {
         <Route path='Resetpassword/:token' element={<Resetpassword />}></Route>
         <Route path='Main_Page' element={<ProtectedRoutes>  <Main_Page />  </ProtectedRoutes>}>
           {/* Inside Main_Page.jsx */}
+          <Route index element={<Overview />}></Route>
           <Route path='Overview' element={<Overview />}></Route>
           <Route path='Transaction' element={<Transaction />}></Route>
           <Route path='Accounts' element={<Accounts/>}></Route>

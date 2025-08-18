@@ -816,6 +816,180 @@
   color: white;
 }
 
+/* Main-Page OverView */
+
+.overview{
+  display: grid;
+  grid-template-areas: "accounts linechart linechart"
+                       "transaction linechart linechart"
+                       "transaction cashflow cashflow";
+  margin : 1rem;
+  gap: 0.5rem;
+}
+
+/* Accounts */
+
+.overview .overview-accounts{
+  grid-area: accounts;
+  background-color: azure;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.overview-accounts .overview-accounts-wallet{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.overview-accounts .overview-accounts-wallet h3{
+  text-align: end;
+}
+
+.overview-accounts .overview-accounts-bank h3{
+  text-align: end;
+}
+
+.overview-accounts .overview-accounts-bank{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Line Chart */
+
+.overview .overview-lineChart{
+  grid-area: linechart;
+  border: 2px solid blue;
+}
+
+/* Transaction */
+
+.overview .overview-transaction{
+  grid-area: transaction;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: azure;
+}
+
+.overview-transaction .overview-transaction-line{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overview-transaction .overview-transaction-line button{
+  background-color: azure;
+  border: 1px solid azure;
+}
+
+/* drop down transaction */
+
+.dropdownTransaction{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.dropdownTransaction .dropdownTransaction-content{
+ background-color: white;
+ width: 50%;
+ padding: 1rem;
+ border: 1px solid lightgray;
+ border-radius: 5px;
+}
+
+.dropdownTransaction .dropdownTransaction-content h1{
+  text-align: center;
+}
+
+.dropdownTransaction-content .content-options{
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.dropdownTransaction-content .content-options select{
+  width: 70%;
+  padding: 0.5rem;
+  border: 1px solid lightgray;
+  outline: none;
+  border-radius: 5px;
+}
+
+.dropdownTransaction-content .content-options select:focus{
+  border-color: lightseagreen;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px lightseagreen;
+}
+
+.dropdownTransaction-content .content-button{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+  margin-right: 1rem;
+}
+
+.dropdownTransaction-content .content-button button{
+  background-color: lightseagreen;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+
+.overview-transaction .overview-transaction-line1{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.overview-transaction .overview-transaction-line2{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Cash Flow */
+
+.overview .overview-cashflow{
+  grid-area: cashflow;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.overview-cashflow .cashflow-line1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cashflow-line1 .dates{
+  display: flex;
+  gap: 1rem;
+}
+
+.cashflow-line1 .income_expense{
+  display: flex;
+  gap: 1rem;
+}
 
 /* Main-Page Transaction */
 
@@ -823,7 +997,7 @@
   display: grid;
   grid-template-areas: "filter date date"
     "filter  all  all"
-    ".      all  all";
+    ".   all  all";
   margin: 0.5rem;
 }
 
