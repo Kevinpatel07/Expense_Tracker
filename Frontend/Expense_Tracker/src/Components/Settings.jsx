@@ -35,7 +35,7 @@ const Settings = () => {
 
        <div className='settings-currency'>
         <h3>Currency:</h3>
-        <select  onChange={handleCurrencyChange}>
+        <select value={currencycodes}  onChange={handleCurrencyChange}>
           {currencyCodes.codes().map((codes)=>
                <option key={codes}  value={codes}>{codes}</option>     
           )}
