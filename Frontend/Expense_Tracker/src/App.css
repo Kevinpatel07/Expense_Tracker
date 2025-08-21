@@ -972,7 +972,7 @@
   border: 1px solid lightgray;
   background-color: azure;
   border-radius: 5px;
-  padding-bottom:1rem;
+  padding-bottom: 0.5rem;
 }
 
 .overview .overview-cashflow div h3{
@@ -984,7 +984,7 @@
   border-collapse: collapse;
   width: 100%;
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .dates{
@@ -1017,6 +1017,10 @@
   border-left: 1px solid lightgray;
 }
 
+.cashflow-total{
+  text-align: end;
+  padding-right: 1rem;
+}
 
 
 /* Main-Page Transaction */

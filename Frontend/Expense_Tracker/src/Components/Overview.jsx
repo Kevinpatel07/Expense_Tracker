@@ -114,6 +114,9 @@ const Overview = () => {
     barchart()
   }, [transactions])
 
+  const income = filteredTransaction.reduce((sum, item) => item.amount >= 0 ? sum + (item.amount) : sum, 0)
+  const expense = filteredTransaction.reduce((sum, item) => item.amount < 0 ? sum + (item.amount) : sum, 0)
+
   const incomeCount = filteredTransaction.filter((item) => item.amount >= 0).length
   const expenseCount = filteredTransaction.filter((item) => item.amount < 0).length
 
@@ -170,8 +173,8 @@ const Overview = () => {
             <tbody>
               <tr>
                 <td style={{ textAlign: 'start' }}>Total</td>
-                <td>{currencySymbol} {filteredTransaction.reduce((sum, item) => item.amount >= 0 ? sum + (item.amount) : sum, 0)}</td>
-                <td>{currencySymbol} {filteredTransaction.reduce((sum, item) => item.amount < 0 ? sum + (item.amount) : sum, 0)}</td>
+                <td>{currencySymbol} {income}</td>
+                <td>{currencySymbol} {expense}</td>
               </tr>
               <tr>
                 <td style={{ textAlign: 'start' }}>Transaction</td>
@@ -180,17 +183,20 @@ const Overview = () => {
               </tr>
               <tr>
                 <td style={{ textAlign: 'start' }} >Average(Day)</td>
-                <td>{currencySymbol} {(filteredTransaction.reduce((sum, item) => item.amount >= 0 ? sum + (item.amount) : sum, 0) / new Date(selectYear, selectMonth + 1, 0).getDate()).toFixed(2)}</td>
-                <td>{currencySymbol} {(filteredTransaction.reduce((sum, item) => item.amount < 0 ? sum + (item.amount) : sum, 0) / new Date(selectYear, selectMonth + 1, 0).getDate()).toFixed(2)}</td>
+                <td>{currencySymbol} {( income / new Date(selectYear, selectMonth + 1, 0).getDate()).toFixed(2)}</td>
+                <td>{currencySymbol} {( expense / new Date(selectYear, selectMonth + 1, 0).getDate()).toFixed(2)}</td>
 
               </tr>
               <tr>
                 <td style={{ textAlign: 'start', borderBottom: "1px solid lightgray" }} >Average (Transactions)</td>
-                <td style={{ borderBottom: "1px solid lightgray" }}>{currencySymbol} {(filteredTransaction.reduce((sum, item) => item.amount >= 0 ? sum + (item.amount) : sum, 0) / incomeCount).toFixed(2)}</td>
-                <td style={{ borderBottom: "1px solid lightgray" }}>{currencySymbol} {(filteredTransaction.reduce((sum, item) => item.amount < 0 ? sum + (item.amount) : sum, 0) / expenseCount).toFixed(2)}</td>
+                <td style={{ borderBottom: "1px solid lightgray" }}>{currencySymbol} {(income / incomeCount).toFixed(2)}</td>
+                <td style={{ borderBottom: "1px solid lightgray" }}>{currencySymbol} {(expense / expenseCount).toFixed(2)}</td>
               </tr>
             </tbody>
           </table>
+          <div className='cashflow-total'>
+            <p style={{color: (income - Math.abs(Number(expense))) >= 0 ? 'darkgreen' : 'red' }}>Total:   {currencySymbol}{income - Math.abs(Number(expense))}</p>
+          </div>
         </div>
 
         
