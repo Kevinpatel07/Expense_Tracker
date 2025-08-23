@@ -51,8 +51,8 @@ userRouter.post('/login', async (req, res) => {
                 res.status(500).json({ message: "Login Error" })
             } else {
                 if (result) {
-                    const Accesstoken = jwt.sign({ userId: user._id }, 'Access', { expiresIn: '10m' })
-                    const Refreshtoken = jwt.sign({ userId: user._id }, 'Refresh', { expiresIn: '60m' })
+                    const Accesstoken = jwt.sign({ userId: user._id }, process.env.ACCESS_SECRET, { expiresIn: '2m' })
+                    const Refreshtoken = jwt.sign({ userId: user._id }, process.env.REFRESH_SECRET, { expiresIn: '60m' })
 
                     res.status(200).json({ message: "Login Successful", Accesstoken, Refreshtoken })
                 }else{
@@ -63,19 +63,19 @@ userRouter.post('/login', async (req, res) => {
     } catch (error) {
         console.log(error.message)
         res.status(500).json({ message: "Login Error" })
-
     }
 })
 
 userRouter.post('/refresh-token', async (req, res) => {
-    const { refreshtoken } = req.body
+    const { refreshToken } = req.body
 
-    if (!refreshtoken) {
-        return res.status(404).json({ message: "No RefreshToken Found" })
+    if (!refreshToken) {
+        return res.status(404).json({ message: "No Refresh Token Found" })
     }
+    
     try {
-        const decoded = jwt.verify(refreshtoken, 'refresh')
-        const newAccessToken = jwt.sign({ userId: decoded.userId }, 'newAccess', { expiresIn: "10m" })
+        const decoded = jwt.verify(refreshToken, process.env.REFRESH_SECRET)
+        const newAccessToken = jwt.sign({ userId: decoded.userId }, process.env.ACCESS_SECRET, { expiresIn: "2m" })
 
         res.status(200).json({ newAccessToken })
 
