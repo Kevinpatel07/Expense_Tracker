@@ -9,27 +9,27 @@ const LogIn = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
 
-  const handleLogin = async () => {
-    const email = emailRef.current.value.trim()
-    const password = passwordRef.current.value.trim()
+    const handleLogin = async () => {
+      const email = emailRef.current.value.trim()
+      const password = passwordRef.current.value.trim()
 
-    try {
-      const res = await api.post("/users/login", {
-        email,
-        password
-      })
+      try {
+        const res = await api.post("/users/login", {
+          email,
+          password
+        })
 
-      localStorage.setItem("accessToken", res.data.Accesstoken)
-      localStorage.setItem("refreshToken", res.data.Refreshtoken)
-    
-      alert("Login successful!");
-      setisLogin(true)
-      navigate('/Main_Page');
-    } catch (error) {
-      console.error("Login Failed:", error.response?.data?.message);
-      alert(error.response?.data?.message || "Login failed");
+        localStorage.setItem("accessToken", res.data.Accesstoken)
+        localStorage.setItem("refreshToken", res.data.Refreshtoken)
+      
+        alert("Login successful!");
+        setisLogin(true)
+        navigate('/Main_Page');
+      } catch (error) {
+        console.error("Login Failed:", error.response?.data?.message);
+        alert(error.response?.data?.message || "Login failed");
+      }
     }
-  }
 
   return (
     <div className='parentLogin'>

@@ -6,19 +6,20 @@ import { Mail } from 'lucide-react';
 import myImage from '../assets/budget-planning-notes-3d-icon-download-in-png-blend-fbx-gltf-file-formats--financial-expense-recording-personal-finance-management-budgeting-accounting-pack-business-icons-12460312.webp'
 import playStore from '../assets/images (1).png'
 import Iphone from '../assets/download.png'
-import Overview from '../assets/web_overview.png'
-import transaction from '../assets/web_transactions_dark.png'
+import Overview1 from '../assets/Overview1.png'
+import Charts from '../assets/Charts.png'
+import transaction1 from '../assets/transaction1.png'
 import { useNavigate } from 'react-router-dom';
 
 
 const Dashboard = () => {
   const navigate = useNavigate()
 
-  const handleLogIn = ()=>{
+  const handleLogIn = () => {
     navigate('/LogIn')
   }
 
-  const handleSignUp =  ()=>{
+  const handleSignUp = () => {
     navigate('/SignUp')
   }
 
@@ -97,47 +98,65 @@ const Dashboard = () => {
 
       {/* OverView */}
 
-      <div className='dashboard-overview'>
-        <div className='overview-section'>
+      <div className='dashboard'>
+        <div className='section'>
           <h1>Overview</h1>
         </div>
 
-        <div className='overview-img'>
+        <div className='img'>
           <div>
             <p>Visualize the flow of your money at a glance with a fully customizable Overview page.
               Here you can find the balance of your last days together with the accounts, cards and budgets you use most frequently.</p>
           </div>
 
           <div>
-            <img src={Overview} alt="overView" />
+            <img src={Overview1} alt="overView" />
           </div>
         </div>
       </div>
 
-      <div className='dashboard-transaction'>
+      <div className='dashboard'>
 
-        <div className='transaction-img'>
+        <div className='img'>
           <div>
             <p>Manage your daily expenses as you wish. You can create unlimited categories and subcategories to track them better. Scheduled transactions and transaction templates will help you to speed up the insertion of new transactions.</p>
           </div>
 
           <div>
-            <img src={transaction} alt="transaction" />
+            <img src={transaction1} alt="transaction" />
           </div>
 
         </div>
 
-        <div className='transaction-section'>
+        <div className='section'>
           <h1>Transactions</h1>
         </div>
 
       </div>
 
+      <div className='dashboard'>
+        <div className='section'>
+          <h1>Charts</h1>
+        </div>
+
+        <div className='img'>
+          <div>
+            <p>Stop wondering where your money goes!
+              Spendy provides a customizable overview of your income, expenses, and budgets on a single screen. Our intuitive reports and charts make it easy to understand your spending habits and identify areas for improvement.</p>
+          </div>
+
+          <div>
+            <img src={Charts} alt="Charts" />
+          </div>
+        </div>
+      </div>
+
+
       <div className='functions'>
 
         <div className='function-1'>
           <div className='lucide-icon'>
-           <DollarSign/>
+            <DollarSign />
           </div>
 
           <div>
@@ -148,8 +167,8 @@ const Dashboard = () => {
 
 
         <div className='function-1'>
-           <div className='lucide-icon'>
-           <ArrowBigUpDash/>
+          <div className='lucide-icon'>
+            <ArrowBigUpDash />
           </div>
 
           <div>
@@ -159,9 +178,9 @@ const Dashboard = () => {
         </div>
 
 
-       <div className='function-1'>
-           <div className='lucide-icon'>
-           <Landmark/>
+        <div className='function-1'>
+          <div className='lucide-icon'>
+            <Landmark />
           </div>
 
           <div>
@@ -169,11 +188,11 @@ const Dashboard = () => {
             <p>Download automatically your transactions from your bank account</p>
           </div>
         </div>
-        
+
 
         <div className='function-1'>
-           <div className='lucide-icon'>
-           <Mail/>
+          <div className='lucide-icon'>
+            <Mail />
           </div>
 
           <div>
@@ -185,8 +204,8 @@ const Dashboard = () => {
 
 
       <footer className='footer'>
-         
-         <h2>Copyright ©2020-2030 - All rights reserved</h2>
+
+        <h2>Copyright ©2020-2030 - All rights reserved</h2>
 
       </footer>
 

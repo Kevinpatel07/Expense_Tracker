@@ -13,13 +13,13 @@ const AuthProvider = ({ children }) => {
 
     const verifyAndRefreshtoken = async () => {
       const accesstoken = localStorage.getItem("accessToken");
-      const refreshtoken = localStorage.getItem("refreshToken")
+      const refreshtoken = localStorage.getItem("refreshToken");
 
       if (!refreshtoken) {
         setisLogin(false);
         setLoading(false);
         return;
-      }
+      } 
 
       if (accesstoken) {
         setisLogin(true); // assume token is okay for now
@@ -28,17 +28,16 @@ const AuthProvider = ({ children }) => {
       }
 
       try {
-
+        console.log("Refresh Token from Auth" , refreshtoken)
         const res = await api.post('/users/refresh-token', {
-          refreshtoken: refreshtoken
+          refreshToken: refreshtoken
         })
 
         const newAccesstoken = res.data.newAccessToken
-        localStorage.set('accessToken', newAccesstoken)
+        localStorage.setItem('accessToken', newAccesstoken)
         setisLogin(true)
       } catch (error) {
-
-        console.error("Auto-refresh failed", err);
+        console.error("Auto-refresh failed", error);
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         setisLogin(false);
