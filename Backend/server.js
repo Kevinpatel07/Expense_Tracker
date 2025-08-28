@@ -10,13 +10,11 @@ require("dotenv").config()
 connectDB()
 
 const corsOptions = {
-  origin: 'https://expense-tracker-web-seven.vercel.app', // allow only your frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: 'https://expense-tracker-web-seven.vercel.app',
+  credentials: true
 };
 
 App.use(cors(corsOptions));
-App.options('*', cors(corsOptions));
 
 App.use(express.json())
 
@@ -24,7 +22,7 @@ App.use('/api/users' , userRouter)
 App.use('/api/incomes' , incomeRouter)
 App.use('/api/expenses' , expenseRouter)
 
-PORT = 7390
+const PORT = process.env.PORT || 7390;
 App.listen(PORT , ()=>{
     console.log(`Server is working on http://localhost:${PORT}`)
 })
