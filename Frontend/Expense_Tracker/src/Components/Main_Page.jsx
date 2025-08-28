@@ -56,7 +56,7 @@ const Main_Page = () => {
   },[])
 
 
-  return (
+  return ( 
     <div>
 
       <div className='main-page'>
@@ -77,11 +77,11 @@ const Main_Page = () => {
 
           <div className='sidebar-page'>
             <ol className='sidebar-ol'>
-              <li><LayoutDashboard /> <NavLink className='navlink' to='/Main_page/Overview'>Overview</NavLink></li>
-              <li><TableOfContents /> <NavLink className='navlink' to='/Main_page/Transaction'>Transaction</NavLink></li>
-              <li><Landmark /> <NavLink className='navlink' to='/Main_page/Accounts'>Accounts</NavLink></li>
-              <li> <ChartPie /> <NavLink className='navlink' to='/Main_page/Charts'>Charts</NavLink></li>
-              <li><Settings /> <NavLink className='navlink' to='/Main_page/Settings'>Settings</NavLink></li>
+              <li><LayoutDashboard className='icon' /> <NavLink className='navlink' to='/Main_page/Overview'>Overview</NavLink></li>
+              <li><TableOfContents className='icon' /> <NavLink className='navlink' to='/Main_page/Transaction'>Transaction</NavLink></li>
+              <li><Landmark className='icon' /> <NavLink className='navlink' to='/Main_page/Accounts'>Accounts</NavLink></li>
+              <li> <ChartPie className='icon' /> <NavLink className='navlink' to='/Main_page/Charts'>Charts</NavLink></li>
+              <li><Settings className='icon' /> <NavLink className='navlink' to='/Main_page/Settings'>Settings</NavLink></li>
             </ol>
           </div>
 
@@ -92,12 +92,12 @@ const Main_Page = () => {
         <div className={isSidebarOpen ? 'main-page-body' : 'main-page-body-full'}>
           <nav className='main-page-body-nav'>
             <div className='nav-slider'>
-              <button onClick={() => setisSidebarOpen(!isSidebarOpen)}><AlignJustify /></button>
+              <button onClick={() => setisSidebarOpen(!isSidebarOpen)}><AlignJustify className='navbar-icon' /></button>
             </div>
             <div className='nav-title'>
               <h1>{title}</h1>
               <div className='dropdown-container'>
-                <button onClick={() => setShowDropdown(!showDropdown)} ><EllipsisVertical /></button>
+                <button onClick={() => setShowDropdown(!showDropdown)} ><EllipsisVertical className='navbar-icon' /></button>
 
                 {showDropdown && (
                   <div className='dropdown-menu'>

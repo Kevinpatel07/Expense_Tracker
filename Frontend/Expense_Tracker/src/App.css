@@ -4,156 +4,9 @@
   box-sizing: border-box;
 }
 
-/* SIGN-UP */
-
-.parent-signUp {
-  border: 1px solid gray;
-  height: 100vh;
-}
-
-.main-signUp-box {
-  border: 1px solid gray;
-  height: 58vh;
-  width: 50%;
-  margin: auto;
-  margin-top: 10%;
-  display: flex;
-  gap: 5px;
-}
-
-.welcome {
-  width: 40%;
-  background-color: lightseagreen;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-
-.create-signUp-account {
-  width: 60%;
-}
-
-.create h2 {
-  text-align: center;
-  padding: 20px 0px;
-}
-
-.signUp-input label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-left: 5px;
-}
-
-.signUp-input input {
-  width: 98%;
-  margin-bottom: 10px;
-  padding: 5px;
-  border-radius: 10px;
-  border: 1px solid gray;
-  outline: none;
-  margin-left: 2px;
-}
-
-.signUp-input input:focus {
-  border-color: lightseagreen;
-  box-shadow: 0 0 5px lightseagreen;
-  transition: all 0.3s ease;
-}
-
-.signUp-button {
-  text-align: center;
-}
-
-.signUp-button button {
-  margin-top: 20px;
-  padding: 8px 60px;
-  border: 1px solid lightgrey;
-  background-color: lightseagreen;
-  color: white;
-  border-radius: 50px;
-  font-weight: bold;
-}
-
-/* LOG-IN */
-.parentLogin {
-  border: 1px solid gray;
-  height: 100vh;
-}
-
-.login-box {
-  border: 1px solid lightgray;
-  width: 50%;
-  margin: auto;
-  margin-top: 10%;
-  display: flex;
-  gap: 15px;
-}
-
-.login {
-  width: 60%;
-}
-
-.welcome-back {
-  width: 40%;
-  background-color: lightseagreen;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-header {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.login-inputs {
-  margin-top: 30px;
-  margin-left: 20px;
-}
-
-.login-inputs label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.login-inputs input {
-  width: 100%;
-  padding: 5px;
-  border-radius: 10px;
-  border: 1px solid lightgray;
-  outline: none;
-  margin-bottom: 10px;
-}
-
-.login-inputs input:focus {
-  border-color: lightseagreen;
-  box-shadow: 0 0 5px lightseagreen;
-  transition: all 0.3s ease;
-}
-
-.login-button {
-  text-align: center;
-}
-
-.login-button button {
-  margin-top: 10px;
-  margin-bottom: 15px;
-  padding: 8px 60px;
-  border: 1px solid lightgrey;
-  background-color: lightseagreen;
-  color: white;
-  border-radius: 50px;
-  font-weight: bold;
-}
-
-.forget-password {
-  text-align: end;
-  margin: 2%;
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* DASHBOARD */
@@ -183,19 +36,32 @@
 }
 
 .nav-buttons button {
-  padding: 10px 30px;
-  margin: 0px 20px;
+  padding: 0.7rem 2rem;
+  margin: 0rem 1.3rem;
   border-radius: 10px;
   border: 2px solid gray;
   background-color: white;
   color: lightseagreen;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .nav-buttons button:hover {
   background-color: lightgray;
   transition: 0.3s ease;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-buttons button {
+    margin: 0px 5px;
+  }
 }
 
 .body {
@@ -208,8 +74,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 30px;
-  gap: 20px;
+  padding-top: 1.8rem;
+  gap: 1.3rem;
 }
 
 .main-body .body-image {
@@ -225,7 +91,7 @@
 }
 
 .body-headers h3 {
-  padding-top: 10px;
+  padding-top: 0.5rem;
 }
 
 .body hr {
@@ -236,16 +102,17 @@
 
 .body-web-headers {
   text-align: center;
-  padding-top: 15px;
+  padding-top: 0.9rem;
 }
 
 .body-buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 70px;
-  padding-top: 20px;
-  padding-bottom: 60px;
+  gap: 2rem;
+  padding-top: 1.2rem;
+  padding-bottom: 3.8rem;
 }
 
 .body-button {
@@ -255,32 +122,52 @@
   border-radius: 20px;
   background-color: white;
   color: lightseagreen;
-  padding: 10px 20px;
+  padding: 0.6rem 1.3rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .button-img-1 {
   max-width: 50px;
-  margin-right: 10px;
+  margin-right: 0.7rem;
 }
 
 .button-img-2 {
   max-width: 45px;
-  margin-right: 10px;
+  margin-right: 0.7rem;
 }
 
 .button-img-3 {
   max-width: 40px;
-  margin-right: 10px;
+  margin-right: 0.7rem;
 }
 
 .body-button img {
   width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+
+  .body-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .body-headers {
+    font-size: x-small
+  }
+
+  .body-web-headers {
+    font-size: x-small;
+  }
+
+  .body-button {
+    padding: 5px 10px;
+  }
+}
+
 /* Dashboard */
 
-.dashboard{
+.dashboard {
   display: flex;
   margin-top: 2%;
 }
@@ -317,52 +204,318 @@
   box-shadow: 0px 3px 8px lightseagreen;
 }
 
+@media screen and (max-width:768px) {
+
+  .section h1 {
+    font-size: large;
+  }
+
+  .img div p {
+    font-size: x-small;
+  }
+}
+
+
 /* Functions Dashboard */
 
 .functions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  gap: 2.5rem;
   margin-top: 3%;
   padding: 3%;
 }
 
 .lucide-icon {
-  width: 10%;
   height: 10vh;
   background-color: lightseagreen;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 0.4rem;
   color: white;
 }
 
 .functions .function-1 {
   display: flex;
-  gap: 15px;
+  gap: 0.9rem;
 }
 
 /* Footer */
 
 .footer {
   background-color: lightseagreen;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 1.3rem;
+  margin-top: 1.3rem;
   text-align: center;
   color: white;
 }
 
+@media screen and (max-width: 768px) {
+
+  .function-1 div h2 {
+    font-size: small;
+  }
+
+  .function-1 div p {
+    font-size: x-small;
+  }
+
+  .footer {
+    font-size: x-small;
+  }
+
+  .lucide-icon {
+    padding: 0.2rem;
+  }
+}
+
+
+/* SIGN-UP */
+
+.parent-signUp {
+  border: 1px solid gray;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-signUp-box {
+  border: 1px solid gray;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  gap: 0.4rem;
+}
+
+
+.welcome {
+  width: 40%;
+  display: flex;
+  background-color: lightseagreen;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
+.create-signUp-account {
+  width: 60%;
+}
+
+.create h2 {
+  text-align: center;
+  padding: 1.3rem 0rem;
+}
+
+.signUp-input label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  margin-left: 0.4rem;
+}
+
+.signUp-input input {
+  width: 98%;
+  margin-bottom: 0.7rem;
+  padding: 0.4rem;
+  border-radius: 0.7rem;
+  border: 1px solid gray;
+  outline: none;
+  margin-left: 0.1rem;
+}
+
+.signUp-input input:focus {
+  border-color: lightseagreen;
+  box-shadow: 0 0 5px lightseagreen;
+  transition: all 0.3s ease;
+}
+
+.signUp-button {
+  text-align: center;
+}
+
+.signUp-button button {
+  margin-top: 1.3rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 3rem;
+  border: 1px solid lightgrey;
+  background-color: lightseagreen;
+  color: white;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+
+  .welcome {
+    font-size: x-small;
+  }
+
+  .create {
+    font-size: small;
+  }
+
+  .signUp-button button {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .signUp-input label {
+    font-size: small;
+  }
+
+  .signUp-input input {
+    width: 80%;
+  }
+
+  .main-signUp-box {
+    width: 80%;
+  }
+
+}
+
+/* LOG-IN */
+.parentLogin {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  border: 1px solid lightgray;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  gap: 0.9rem;
+}
+
+.login {
+  width: 60%;
+}
+
+.welcome-back {
+  width: 40%;
+  background-color: lightseagreen;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-header {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.login-inputs {
+  margin-top: 1.9rem;
+  margin-left: 1.3rem;
+}
+
+.login-inputs label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.login-inputs input {
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  outline: none;
+  margin-bottom: 0.7rem;
+}
+
+.login-inputs input:focus {
+  border-color: lightseagreen;
+  box-shadow: 0 0 5px lightseagreen;
+  transition: all 0.3s ease;
+}
+
+.login-button {
+  text-align: center;
+}
+
+.login-button button {
+  margin-top: 0.7rem;
+  margin-bottom: 0.9rem;
+  padding: 0.5rem 3.8rem;
+  border: 1px solid lightgrey;
+  background-color: lightseagreen;
+  color: white;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.forget-password {
+  text-align: end;
+  margin: 2%;
+}
+
+@media screen and (max-width: 800px) {
+
+  .welcome-back {
+    font-size: small;
+  }
+
+  .login-box {
+    width: 80%;
+  }
+
+  .login-header {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 650px) {
+
+  .welcome-back {
+    font-size: xx-small;
+    text-align: center;
+  }
+
+  .login-header {
+    font-size: xx-small;
+  }
+
+  .login-inputs label {
+    font-size: small;
+    text-align: center;
+  }
+
+  .login-inputs input {
+    padding: 0.2rem;
+  }
+
+  .login-button button {
+    padding: 0.2rem 1.5rem;
+  }
+
+  .forget-password {
+    font-size: x-small;
+  }
+}
+
 /* FORGET PASSWORD */
+
+.forget-password-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 .forget-password-page {
   display: flex;
-  gap: 15px;
+  gap: 0.9rem;
   width: 50%;
   margin: auto;
   border: 1px solid gray;
-  margin-top: 10%;
 }
 
 .forget-password-page .box1 {
@@ -421,15 +574,61 @@
   margin-bottom: 10%;
 }
 
+@media screen and (min-width:611px) and (max-width:960px) {
+
+  .forget-password-page .box1 {
+    font-size: x-small;
+  }
+
+  .forget-password-page {
+    width: 80%;
+  }
+
+  .forget-password-page .box2 .box2-p {
+    font-size: small;
+  }
+
+}
+
+@media screen and (max-width:610px) {
+
+  .forget-password-page .box1 {
+    font-size: xx-small;
+    text-align: center;
+  }
+
+  .forget-password-page {
+    width: 80%;
+  }
+
+  .forget-password-page .box2 .box2-p {
+    font-size: x-small;
+  }
+
+  .forget-password-page .box2 .box2-input label {
+    font-size: small;
+  }
+
+  .forget-password-page .box2 .box2-button button {
+    font-size: x-small;
+  }
+}
+
 /* RESET PASSWORD */
+
+.reset-password-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 .reset-password {
   display: flex;
-  gap: 15px;
+  gap: 0.9rem;
   border: 1px solid gray;
   width: 50%;
   margin: auto;
-  margin-top: 10%;
 }
 
 .reset-password .reset-box1 {
@@ -486,6 +685,48 @@
   border: 1px solid gray;
   background-color: lightseagreen;
   color: white;
+}
+
+@media screen and (min-width:501px) and (max-width:850px) {
+
+  .reset-box2 {
+    font-size: small;
+    text-align: center;
+  }
+
+  .reset-password {
+    width: 80%;
+  }
+
+}
+
+@media screen and (max-width :500px) {
+
+  .reset-password .reset-p {
+    font-size: small;
+  }
+
+  .reset-box2 {
+    font-size: small;
+    text-align: center;
+  }
+
+  .reset-password {
+    width: 80%;
+  }
+
+  .reset-box1 .reset-inputs label {
+    font-size: small;
+  }
+
+  .reset-box1 .reset-inputs input {
+    padding: 0.1rem;
+  }
+
+  .reset-password .reset-button button {
+    font-size: x-small;
+  }
+
 }
 
 
@@ -558,14 +799,13 @@
   background-color: black
 }
 
+/* Main-Page-Body */
+
 .main-page .main-page-body {
   width: 75%;
   margin-left: 25%;
   overflow-y: auto;
 }
-
-
-/* Main-Page-Body */
 
 .main-page-body-full {
   width: 100%;
@@ -590,6 +830,7 @@
 .main-page-body-nav .nav-title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -627,16 +868,88 @@
   background-color: #f2f2f2;
 }
 
+@media screen and (min-width:451px) and (max-width:650px) {
+
+  .main-page {
+    font-size: small;
+  }
+
+  .sidebar-img {
+    width: 30%;
+  }
+
+  .sidebar-logo {
+    margin-bottom: 0.2rem;
+  }
+
+  .sidebar-ol li {
+    gap: 10%;
+    margin-bottom: 30%;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .nav-slider .navbar-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dropdown-container .navbar-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+}
+
+@media screen and (max-width:450px) {
+
+  .main-page {
+    font-size: x-small
+  }
+
+  .sidebar-img {
+    width: 30%;
+  }
+
+  .sidebar-logo {
+    margin-bottom: 0.4rem;
+  }
+
+  .sidebar-ol li {
+    margin-bottom: 50%;
+  }
+
+  .icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .nav-slider .navbar-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .dropdown-container .navbar-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+}
+
+
 /* Income / Expense Button*/
 
-.Income{
+.Income {
   position: fixed;
   right: 2%;
   bottom: 28%;
   z-index: 1;
 }
 
-.Income button{
+.Income button {
   padding: 1rem 1.5rem;
   background-color: green;
   border: 1px solid lightgray;
@@ -644,13 +957,14 @@
   color: white;
 }
 
-.Income .income-popUp-overlay{
+.Income .income-popUp-overlay {
   position: fixed;
   left: 0;
-  top:0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* dim background */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* dim background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -665,12 +979,12 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
-.income-popUp-content div h1{
+.income-popUp-content div h1 {
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
-.income-data label{
+.income-data label {
   font-size: large;
   font-weight: bold;
   margin-left: 0.3rem;
@@ -678,7 +992,7 @@
   margin-bottom: 0.2rem;
 }
 
-.income-data .type{
+.income-data .type {
   display: block;
   width: 100%;
   border: 1px solid lightgray;
@@ -688,13 +1002,13 @@
   outline: none;
 }
 
-.income-data .type:focus{
+.income-data .type:focus {
   border-color: lightseagreen;
   transition: all 0.3s ease;
   box-shadow: 0 0 5px lightseagreen;
 }
 
-.income-content-button{
+.income-content-button {
   display: flex;
   justify-content: end;
   gap: 2rem;
@@ -704,14 +1018,14 @@
 
 /* Expenses */
 
-.Expense{
+.Expense {
   position: fixed;
   right: 1.8%;
   bottom: 16%;
   z-index: 1;
 }
 
-.Expense .expense-popup-overlay{
+.Expense .expense-popup-overlay {
   position: fixed;
   left: 0;
   top: 0;
@@ -721,10 +1035,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 999;
 }
 
-.expense-popup-overlay .expense-popup-content{
+.expense-popup-overlay .expense-popup-content {
   background-color: white;
   padding: 1rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -732,12 +1046,12 @@
   border-radius: 10px;
 }
 
-.expense-popup-content div h1{
+.expense-popup-content div h1 {
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
-.expense-data .type{
+.expense-data .type {
   display: block;
   width: 100%;
   border: 1px solid lightgray;
@@ -747,7 +1061,7 @@
   outline: none;
 }
 
-.expense-data label{
+.expense-data label {
   font-size: large;
   font-weight: bold;
   margin-left: 0.3rem;
@@ -755,13 +1069,13 @@
   margin-bottom: 0.2rem;
 }
 
-.expense-data .type:focus{
+.expense-data .type:focus {
   border-color: lightseagreen;
   transition: all 0.3s ease;
   box-shadow: 0 0 5px lightseagreen;
 }
 
-.expense-content-button{
+.expense-content-button {
   display: flex;
   justify-content: end;
   gap: 2rem;
@@ -769,7 +1083,7 @@
   margin-right: 1rem;
 }
 
-.Expense button{
+.Expense button {
   padding: 1rem 1.3rem;
   background-color: red;
   border: 1px solid lightgray;
@@ -777,26 +1091,70 @@
   color: white;
 }
 
+@media screen and (max-width:768px) {
+
+  .Income .income-popUp-content {
+    width: 80%;
+  }
+
+  .Income .income-popUp-content div h1 {
+    font-size: large;
+  }
+
+  .income-data label {
+    font-size: small;
+  }
+
+  .income-data .type {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .income-content-button button {
+    padding: 0.5rem 1rem;
+  }
+
+  .expense-popup-overlay .expense-popup-content {
+    width: 80%;
+  }
+
+  .expense-popup-content div h1 {
+    font-size: large;
+  }
+
+  .expense-data label {
+    font-size: small;
+  }
+
+  .expense-data .type {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .expense-content-button button {
+    padding: 0.5rem 1rem;
+  }
+
+}
+
 /* Main-Page OverView */
 
-.overview{
+.overview {
   display: grid;
-  grid-template-columns: repeat(2 , 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   align-items: start;
-  margin : 1rem;
+  margin: 1rem;
   gap: 0.5rem;
 }
 
 /* Accounts */
 
-.overview .overview-accounts{
+.overview .overview-accounts {
   background-color: azure;
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 1rem;
 }
 
-.overview-accounts .overview-accounts-wallet{
+.overview-accounts .overview-accounts-wallet {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -804,15 +1162,15 @@
   margin-bottom: 1rem;
 }
 
-.overview-accounts .overview-accounts-wallet h3{
+.overview-accounts .overview-accounts-wallet h3 {
   text-align: end;
 }
 
-.overview-accounts .overview-accounts-bank h3{
+.overview-accounts .overview-accounts-bank h3 {
   text-align: end;
 }
 
-.overview-accounts .overview-accounts-bank{
+.overview-accounts .overview-accounts-bank {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -822,7 +1180,7 @@
 
 /* BAR Chart */
 
-.overview .overview-BarChart{
+.overview .overview-BarChart {
   background-color: azure;
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -831,28 +1189,28 @@
 
 /* Transaction */
 
-.overview .overview-transaction{
-  
+.overview .overview-transaction {
+
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 1rem;
   background-color: azure;
 }
 
-.overview-transaction .overview-transaction-line{
+.overview-transaction .overview-transaction-line {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.overview-transaction .overview-transaction-line button{
+.overview-transaction .overview-transaction-line button {
   background-color: azure;
   border: 1px solid azure;
 }
 
 /* drop down transaction */
 
-.dropdownTransaction{
+.dropdownTransaction {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -865,19 +1223,19 @@
   z-index: 999;
 }
 
-.dropdownTransaction .dropdownTransaction-content{
- background-color: white;
- width: 50%;
- padding: 1rem;
- border: 1px solid lightgray;
- border-radius: 5px;
+.dropdownTransaction .dropdownTransaction-content {
+  background-color: white;
+  width: 50%;
+  padding: 1rem;
+  border: 1px solid lightgray;
+  border-radius: 5px;
 }
 
-.dropdownTransaction .dropdownTransaction-content h1{
+.dropdownTransaction .dropdownTransaction-content h1 {
   text-align: center;
 }
 
-.dropdownTransaction-content .content-options{
+.dropdownTransaction-content .content-options {
   display: flex;
   align-items: center;
   margin-top: 2rem;
@@ -885,7 +1243,7 @@
   gap: 1rem;
 }
 
-.dropdownTransaction-content .content-options select{
+.dropdownTransaction-content .content-options select {
   width: 70%;
   padding: 0.5rem;
   border: 1px solid lightgray;
@@ -893,13 +1251,13 @@
   border-radius: 5px;
 }
 
-.dropdownTransaction-content .content-options select:focus{
+.dropdownTransaction-content .content-options select:focus {
   border-color: lightseagreen;
   transition: all 0.3s ease;
   box-shadow: 0 0 5px lightseagreen;
 }
 
-.dropdownTransaction-content .content-button{
+.dropdownTransaction-content .content-button {
   display: flex;
   justify-content: end;
   align-items: center;
@@ -907,7 +1265,7 @@
   margin-right: 1rem;
 }
 
-.dropdownTransaction-content .content-button button{
+.dropdownTransaction-content .content-button button {
   background-color: lightseagreen;
   color: white;
   padding: 0.5rem 1rem;
@@ -916,60 +1274,60 @@
 }
 
 
-.overview-transaction .overview-transaction-line1{
+.overview-transaction .overview-transaction-line1 {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
 }
 
-.overview-transaction .overview-transaction-line2{
+.overview-transaction .overview-transaction-line2 {
   display: flex;
   justify-content: space-between;
 }
 
 /* Cash Flow */
 
-.overview .overview-cashflow{
+.overview .overview-cashflow {
   border: 1px solid lightgray;
   background-color: azure;
   border-radius: 5px;
   padding-bottom: 0.5rem;
 }
 
-.overview .overview-cashflow div h3{
+.overview .overview-cashflow div h3 {
   padding-left: 1rem;
-  margin-top: 1rem; 
+  margin-top: 1rem;
 }
 
-.overview-cashflow .cashflow-table{
+.overview-cashflow .cashflow-table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-.dates{
+.dates {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   gap: 1rem;
 }
 
-.dates button{
+.dates button {
   background-color: azure;
   border: 1px solid azure;
 }
 
-.cashflow-table tr + tr td{
-  border-top  : 1px solid lightgray;
+.cashflow-table tr+tr td {
+  border-top: 1px solid lightgray;
 }
 
-.cashflow-table tr th{
+.cashflow-table tr th {
   border-bottom: 2px solid black;
   padding: 0.5rem;
 }
 
-.cashflow-table td{
+.cashflow-table td {
   text-align: center;
 }
 
@@ -978,9 +1336,30 @@
   border-left: 1px solid lightgray;
 }
 
-.cashflow-total{
+.cashflow-total {
   text-align: end;
   padding-right: 1rem;
+}
+
+@media screen and (max-width:500px) {
+
+  .overview {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 0.5rem;
+  }
+
+  .overview .overview-cashflow {
+    font-size: xx-small;
+  }
+
+  .overview-accounts-wallet h2 {
+    font-size: large;
+  }
+
+  .overview-accounts-bank h2 {
+    font-size: large;
+  }
+
 }
 
 
@@ -1065,7 +1444,7 @@
   background-color: azure;
 }
 
-.transaction .transaction-date button{
+.transaction .transaction-date button {
   background-color: azure;
   border: 1px solid azure;
 }
@@ -1077,14 +1456,14 @@
   background-color: azure;
 }
 
-.all-transaction .transaction-headers{
+.all-transaction .transaction-headers {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
 }
 
-.map-transaction{
+.map-transaction {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1092,55 +1471,90 @@
   padding: 0 1rem;
 }
 
-.map-transaction .map-transaction-content{
+.map-transaction .map-transaction-content {
   display: flex;
   justify-content: space-between;
   width: 92%;
 }
 
-.map-transaction .transaction-amount-date{
-  text-align: end ; 
+.map-transaction .transaction-amount-date {
+  text-align: end;
 }
 
-.map-transaction .map-transaction-button button{
+.map-transaction .map-transaction-button button {
   background-color: azure;
   border: 1px solid azure;
 }
 
-.map-transaction-button{
+.map-transaction-button {
   position: relative;
 }
 
-.edit-delete-dropdown-content{
+.edit-delete-dropdown-content {
   position: absolute;
   right: 0;
   top: 120%;
   background-color: lightseagreen;
   border: 1px solid lightseagreen;
   border-radius: 10px;
-  padding: 0.5rem 1rem; 
+  padding: 0.5rem 1rem;
   z-index: 1;
 }
 
-.edit-delete-dropdown-content ol{
+.edit-delete-dropdown-content ol {
   display: grid;
   gap: 10px;
   width: 8rem;
 }
 
-.edit-delete-dropdown-content ol li{
+.edit-delete-dropdown-content ol li {
   list-style: none;
   cursor: pointer;
   color: white;
 }
 
-.edit-delete-dropdown-content ol li:hover{
+.edit-delete-dropdown-content ol li:hover {
   text-decoration: underline;
+}
+
+@media screen and (min-width:501px) and (max-width:700px) {
+
+  .transaction {
+    font-size: x-small;
+  }
+
+  .transaction-filter .transaction-filter-inputs label {
+    font-size: small;
+    text-align: center;
+    margin: 0.5rem;
+  }
+
+  .transaction-filter-checkbox .type label {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width:500px) {
+
+  .transaction {
+    font-size: xx-small;
+  }
+
+  .transaction-filter .transaction-filter-inputs label {
+    font-size: x-small;
+    text-align: center;
+    margin: 0.5rem;
+  }
+
+  .transaction-filter-checkbox .type label {
+    font-size: x-small;
+  }
+
 }
 
 /* EDIT TRANSACTION INCOME */
 
-.edit-transaction-income{
+.edit-transaction-income {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -1153,7 +1567,7 @@
   z-index: 999;
 }
 
-.edit-transaction-income .edit-transaction-income-content{
+.edit-transaction-income .edit-transaction-income-content {
   background-color: white;
   padding: 1rem;
   border-radius: 10px;
@@ -1161,12 +1575,12 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
-.edit-transaction-income .edit-transaction-income-content div h1{
+.edit-transaction-income .edit-transaction-income-content div h1 {
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
-.edit-transaction-content-inputs label{
+.edit-transaction-content-inputs label {
   font-size: large;
   font-weight: bold;
   margin-left: 0.3rem;
@@ -1174,7 +1588,7 @@
   margin-bottom: 0.2rem;
 }
 
-.edit-transaction-content-inputs .inputs{
+.edit-transaction-content-inputs .inputs {
   display: block;
   width: 100%;
   border: 1px solid lightgray;
@@ -1184,30 +1598,54 @@
   outline: none;
 }
 
-.edit-transaction-content-inputs .inputs:focus{
+.edit-transaction-content-inputs .inputs:focus {
   border-color: lightseagreen;
   transition: all 0.3s ease;
   box-shadow: 0 0 5px lightseagreen;
 }
 
-.edit-transaction-income-content-buttons{
+.edit-transaction-income-content-buttons {
   display: flex;
   justify-content: end;
   gap: 2rem;
   margin-top: 1rem;
-  margin-right: 1rem; 
+  margin-right: 1rem;
 }
 
-.edit-transaction-income-content-buttons button{
+.edit-transaction-income-content-buttons button {
   padding: 1rem 1.5rem;
   background-color: green !important;
   border-radius: 10px;
   color: white;
 }
 
+@media screen and (max-width:500px) {
+
+  .edit-transaction-income .edit-transaction-income-content {
+    width: 80%;
+  }
+
+  .edit-transaction-income-content div h1 {
+    font: large;
+  }
+
+  .edit-transaction-content-inputs label {
+    font-size: small;
+  }
+
+  .edit-transaction-content-inputs .inputs {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .edit-transaction-income-content-buttons button {
+    padding: 0.5rem 1rem;
+  }
+
+}
+
 /* EDIT TRANSACTION EXPENSES */
 
-.edit-transaction-expenses{
+.edit-transaction-expenses {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -1220,7 +1658,7 @@
   z-index: 999;
 }
 
-.edit-transaction-expenses-content{
+.edit-transaction-expenses-content {
   background-color: white;
   padding: 1rem;
   border-radius: 10px;
@@ -1228,13 +1666,13 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
-.edit-transaction-expenses .edit-transaction-expenses-content div h1{
+.edit-transaction-expenses .edit-transaction-expenses-content div h1 {
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
 
-.edit-transaction-expenses-content-inputs label{
+.edit-transaction-expenses-content-inputs label {
   font-size: large;
   font-weight: bold;
   margin-left: 0.3rem;
@@ -1242,7 +1680,7 @@
   margin-bottom: 0.2rem;
 }
 
-.edit-transaction-expenses-content-inputs .inputs{
+.edit-transaction-expenses-content-inputs .inputs {
   display: block;
   width: 100%;
   border: 1px solid lightgray;
@@ -1252,25 +1690,49 @@
   outline: none;
 }
 
-.edit-transaction-expenses-content-inputs .inputs:focus{
+.edit-transaction-expenses-content-inputs .inputs:focus {
   border-color: lightseagreen;
   transition: all 0.3s ease;
   box-shadow: 0 0 5px lightseagreen;
 }
 
-.edit-transaction-expenses-content-buttons{
+.edit-transaction-expenses-content-buttons {
   display: flex;
   justify-content: end;
   gap: 2rem;
   margin-top: 1rem;
-  margin-right: 1rem; 
+  margin-right: 1rem;
 }
 
-.edit-transaction-expenses-content-buttons button{
+.edit-transaction-expenses-content-buttons button {
   padding: 1rem 1.5rem;
-  background-color:red !important;
+  background-color: red !important;
   border-radius: 10px;
   color: white;
+}
+
+@media screen and (max-width:500px) {
+
+  .edit-transaction-expenses .edit-transaction-expenses-content {
+    width: 80%;
+  }
+
+  .edit-transaction-expenses-content div h1 {
+    font: large;
+  }
+
+  .edit-transaction-expenses-content-inputs label {
+    font-size: small;
+  }
+
+  .edit-transaction-expenses-content-inputs .inputs {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .edit-transaction-expenses-content-buttons button {
+    padding: 0.5rem 1rem;
+  }
+
 }
 
 /* Accounts */
@@ -1312,11 +1774,22 @@
   background-color: azure;
 }
 
+@media screen and (max-width:550px) {
+
+  .accounts {
+    font-size: xx-small;
+  }
+
+  .accounts .accounts-total {
+    margin-top: 25%;
+  }
+
+}
+
 /*  CHARTS */
 
-.charts .charts-content{
+.charts .charts-content {
   width: 60%;
-  border: 2px solid red;
   margin: auto;
   margin-top: 3rem;
   background-color: azure;
@@ -1325,70 +1798,70 @@
   padding: 1rem;
 }
 
-.charts-content .charts-content-1{
+.charts-content .charts-content-1 {
   display: flex;
   justify-content: space-between;
 }
 
-.charts-content-1 .charts-radio{
+.charts-content-1 .charts-radio {
   display: flex;
   gap: 0.5rem;
 }
 
-.charts-content-2 .charts-content-2-from-to{
+.charts-content-2 .charts-content-2-from-to {
   display: flex;
   justify-content: space-between;
-  width: 30%;
+  width: 10rem;
   margin-top: 2rem;
 }
 
-.charts-content-2 .charts-content-2-date{
+.charts-content-2 .charts-content-2-date {
   display: flex;
   gap: 1.1rem;
 }
 
-.charts-content-2 .charts-content-2-date input{
+.charts-content-2 .charts-content-2-date input {
   padding: 0.3rem;
   margin-top: 0.3rem;
   border-radius: 3px;
   border: 1px solid lightgray;
 }
 
-.charts-content-3{
+.charts-content-3 {
   display: flex;
   gap: 2rem;
   margin-top: 2rem;
 }
 
-.charts-content-3 select{
+.charts-content-3 select {
   padding: 0.3rem;
   width: 60%;
 }
 
-.charts-content-4{
+.charts-content-4 {
   display: flex;
   gap: 5rem;
   margin-top: 2rem;
 }
 
-.bar-chart{
+.bar-chart {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-.pie-chart{
+.pie-chart {
   display: flex;
   gap: 0.5rem;
 }
 
 
-.charts-content-5{
+.charts-content-5 {
   text-align: end;
   margin-top: 2rem;
 }
 
-.charts-content-5 button{
+.charts-content-5 button {
   padding: 0.7rem;
   background-color: lightseagreen;
   color: white;
@@ -1396,7 +1869,7 @@
   border-radius: 5px;
 }
 
-.display-chart{
+.display-chart {
   margin-top: 2rem;
   margin-left: 4rem;
   margin-right: 4rem;
@@ -1406,22 +1879,67 @@
   padding: 2rem;
 }
 
-/* SETTINGS */
+@media screen and (min-width:501px) and (max-width: 900px) {
 
-.settings{
- border: 1px solid lightgray;
- width: 70%;
- margin: auto;
- background-color: azure;
- margin-top: 3rem;
- padding: 1rem;
+  .charts .charts-content {
+    font-size: small;
+    width: 80%;
+  }
 }
 
-.settings .settings-feedback{
+@media screen and (max-width: 500px) {
+
+  .charts .charts-content {
+    font-size: xx-small;
+    width: 98%;
+  }
+
+  .charts-content-2 .charts-content-2-from-to {
+    width: 9rem;
+  }
+
+  .charts-content-2 .charts-content-2-date {
+    gap: 0.2rem;
+  }
+
+  .charts-content-2 .charts-content-2-date input {
+    padding: 0;
+  }
+
+  .charts-content-1 .charts-radio {
+    gap: 0.1rem;
+  }
+
+  .charts-content-1 .charts-radio input {
+    width: 6px;
+  }
+
+  .charts-content-2-date input {
+    width: 6rem;
+  }
+
+  .display-chart {
+    margin: 0rem;
+    padding: 0rem;
+  }
+}
+
+/* SETTINGS */
+
+.settings {
+  border: 1px solid lightgray;
+  width: 70%;
+  margin: auto;
+  background-color: azure;
+  margin-top: 3rem;
+  padding: 1rem;
+}
+
+.settings .settings-feedback {
   margin-bottom: 0.5rem;
 }
 
-.settings .settings-currency{
+.settings .settings-currency {
   display: flex;
   align-items: center;
   gap: 4rem;
@@ -1429,23 +1947,43 @@
   margin-bottom: 2rem;
 }
 
-.settings .settings-currency select{
+.settings .settings-currency select {
   width: 60%;
   padding: 0.5rem;
   outline: none;
   border: 1px solid lightgray;
 }
 
-.settings .settings-currency select:focus{
+.settings .settings-currency select:focus {
   border-color: lightseagreen;
   box-shadow: 0 0 5px lightseagreen;
   transition: all 0.3s ease;
 }
 
-.settings .settings-currency button{
-  padding: 0.4rem 1.2rem ;
+.settings .settings-currency button {
+  padding: 0.4rem 1.2rem;
   background-color: lightseagreen;
   color: white;
   border: 1px solid lightgray;
   border-radius: 5px;
+}
+
+@media screen and (min-width:501px) and (max-width:750px) {
+
+  .settings {
+    width: 95%
+  }
+}
+
+@media screen and (max-width:500px) {
+
+  .settings {
+    width: 95%;
+    font-size: x-small;
+  }
+
+  .settings .settings-currency {
+    gap: 0rem;
+    flex-wrap: wrap;
+  }
 }

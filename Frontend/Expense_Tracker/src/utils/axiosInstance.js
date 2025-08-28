@@ -33,7 +33,6 @@ api.interceptors.response.use(
                 const res = await api.post('/users/refresh-token', {
                      refreshToken
                 });
-                console.log(res)
                 const newaccesstoken = res.data.newAccessToken
                 localStorage.setItem('accessToken', newaccesstoken)
 
