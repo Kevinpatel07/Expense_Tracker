@@ -8,7 +8,16 @@ const expenseRouter = require('./routes/Expense.router')
 require("dotenv").config()
 
 connectDB()
-App.use(cors());
+
+const corsOptions = {
+  origin: 'https://expense-tracker-web-seven.vercel.app', // allow only your frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+App.use(cors(corsOptions));
+App.options('*', cors(corsOptions));
+
 App.use(express.json())
 
 App.use('/api/users' , userRouter)
