@@ -9,10 +9,10 @@ import Resetpassword from './Components/Reset_password'
 import Main_Page from './Components/Main_Page'
 import ProtectedRoutes from './Components/ProtectedRoutes'
 import Overview from './Components/Overview'
-import Transaction from './Components/Transaction'
 import Accounts from './Components/Accounts'  
 import Charts from './Components/Charts'
 import Settings from './Components/Settings'
+import Transaction from './Components/Transaction'
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
           {/* Inside Main_Page.jsx */}
           <Route index element={<Overview />}></Route>
           <Route path='Overview' element={<Overview />}></Route>
-          <Route path='Transaction' element={<Transaction />}></Route>
+          <Route path='Transaction' element={<Transaction/>}></Route>
           <Route path='Accounts' element={<Accounts/>}></Route>
           <Route path='Charts' element={<Charts/>}></Route>
           <Route path='Settings' element={<Settings/>}></Route>
