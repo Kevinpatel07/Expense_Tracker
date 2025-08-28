@@ -1,7 +1,9 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'http://localhost:7390/api'
+    baseURL: window.location.hostname === "localhost"
+        ? "http://localhost:7390/api"
+        : "https://expense-tracker-backend-cayp.onrender.com/api"
 })
 
 api.interceptors.request.use((config) => {
@@ -31,7 +33,7 @@ api.interceptors.response.use(
 
             try {
                 const res = await api.post('/users/refresh-token', {
-                     refreshToken
+                    refreshToken
                 });
                 const newaccesstoken = res.data.newAccessToken
                 localStorage.setItem('accessToken', newaccesstoken)
