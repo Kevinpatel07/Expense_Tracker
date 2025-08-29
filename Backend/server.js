@@ -11,10 +11,13 @@ connectDB()
 
 const corsOptions = {
   origin: 'https://expense-tracker-web-seven.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 };
 
 App.use(cors(corsOptions));
+App.options('*', cors(corsOptions)); 
 
 App.use(express.json())
 
