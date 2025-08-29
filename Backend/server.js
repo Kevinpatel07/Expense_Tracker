@@ -6,7 +6,7 @@ const userRouter = require('./routes/user.router')
 const incomeRouter = require('./routes/income.router')
 const expenseRouter  = require('./routes/expense.router')
 require("dotenv").config()
-  
+
 connectDB()
 
 const corsOptions = {
@@ -17,7 +17,16 @@ const corsOptions = {
 };
 
 App.use(cors(corsOptions));
-App.options('*', cors(corsOptions)); 
+App.use((req, res, next) => {
+  if (req.method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Origin', corsOptions.origin);
+    res.header('Access-Control-Allow-Methods', corsOptions.methods.join(','));
+    res.header('Access-Control-Allow-Headers', corsOptions.allowedHeaders.join(','));
+    res.sendStatus(204); // No Content
+  } else {
+    next();
+  }
+});
 
 App.use(express.json())
 

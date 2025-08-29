@@ -95,7 +95,7 @@ userRouter.post('/forget-password', async (req, res) => {
         }
 
         const token = jwt.sign({ userId: user._id }, 'forget-password-token', { expiresIn: "60m" })
-        const resetlink = `http://localhost:5173/Resetpassword/${token}`
+        const resetlink = `expense-tracker-web-seven.vercel.app/Resetpassword/${token}`
 
         const info = await transporter.sendMail({
             from: '<patelkevin782002@gmail.com>',
