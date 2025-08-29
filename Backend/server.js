@@ -4,7 +4,7 @@ const App = express()
 const cors = require('cors')
 const userRouter = require('./routes/user.router')
 const incomeRouter = require('./routes/income.router')
-const expenseRouter = require('./routes/expense.router')
+const expenseRouter  = require('./routes/expense.router')
 require("dotenv").config()
 
 connectDB()

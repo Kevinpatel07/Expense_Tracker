@@ -55,8 +55,8 @@ userRouter.post('/login', async (req, res) => {
                     const Refreshtoken = jwt.sign({ userId: user._id }, process.env.REFRESH_SECRET, { expiresIn: '60m' })
 
                     res.status(200).json({ message: "Login Successful", Accesstoken, Refreshtoken })
-                }else{
-                    res.status(500).json({message:"Wrong Password"})
+                } else {
+                    res.status(500).json({ message: "Wrong Password" })
                 }
             }
         });
@@ -72,7 +72,7 @@ userRouter.post('/refresh-token', async (req, res) => {
     if (!refreshToken) {
         return res.status(404).json({ message: "No Refresh Token Found" })
     }
-    
+
     try {
         const decoded = jwt.verify(refreshToken, process.env.REFRESH_SECRET)
         const newAccessToken = jwt.sign({ userId: decoded.userId }, process.env.ACCESS_SECRET, { expiresIn: "5m" })
@@ -128,13 +128,13 @@ userRouter.post('/reset-password', (req, res) => {
         decoded = jwt.verify(token, "forget-password-token")
         const myPlaintextPassword = newPassword
         bcrypt.hash(myPlaintextPassword, saltRounds, async function (err, hash) {
-            if(err){
-                return res.status(500).json({message:"Reset Password Error"})
-            }else{
-               const user = await UserModel.findById(decoded.userId)
-               user.password = hash
-               await user.save()
-               res.status(200).json({message:"Password Reset Successfully , Please Login Again"})
+            if (err) {
+                return res.status(500).json({ message: "Reset Password Error" })
+            } else {
+                const user = await UserModel.findById(decoded.userId)
+                user.password = hash
+                await user.save()
+                res.status(200).json({ message: "Password Reset Successfully , Please Login Again" })
             }
         });
     } catch (error) {
