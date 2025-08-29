@@ -25,7 +25,7 @@ App.use('/api/users' , userRouter)
 App.use('/api/incomes' , incomeRouter)
 App.use('/api/expenses' , expenseRouter)
 
-const PORT = process.env.PORT || 7390;
-App.listen(PORT , ()=>{
-    console.log(`Server is working on http://localhost:${PORT}`)
+const PORTT = process.env.PORT || 7390;
+App.listen(PORTT , ()=>{
+    console.log(`Server is working on http://localhost:${PORTT}`)
 })
